@@ -7,7 +7,7 @@ Estado: plano inicial, anterior à fase de descoberta. Nada foi testado contra u
 Depois da primeira versão deste plano, o usuário informou que o interesse é **substituir o 1Doc** e enviou o organograma da Secretaria Municipal de Saúde (SEMUS) cadastrado nele. Isso muda o enquadramento:
 
 - O plano abaixo foi escrito como uma integração contínua SEI → SICS. Substituir o 1Doc é um projeto de **migração** (unidades, usuários, processos e documentos em andamento, histórico), com a integração como parte dele.
-- Ainda não está definido qual sistema assume o lugar do 1Doc (SEI, SICS ou os dois, com papéis distintos) nem o que é o SICS. Enquanto isso não for respondido, as seções 1 a 9 valem como desenho da ponte SEI ↔ SICS, não como plano de substituição.
+- O SICS foi identificado: é o aplicativo SICS-GOV no Base44, sistema de contratações da SEMUS que hoje guarda o 1Doc como referência digitada. O plano concreto para agregar o SEI a ele está em [08-plano-sei-no-sics-gov.md](08-plano-sei-no-sics-gov.md) e prevalece sobre as suposições das seções 1 a 9 onde houver diferença (em especial: não há serviço intermediário separado, e a lista de processos a acompanhar vem do próprio SICS).
 - O organograma transcrito e os problemas que ele traz para a migração (siglas repetidas, raiz pendurada na comissão do 1Doc, entidades externas como unidades) estão em [07-organograma-semus-1doc.md](07-organograma-semus-1doc.md).
 - Nada foi levantado ainda sobre como extrair dados do 1Doc (API, exportação, contrato). Esse é o primeiro item de descoberta do novo escopo.
 
@@ -132,3 +132,4 @@ Perguntas equivalentes para o administrador do SEI estão no checklist do arquiv
 | [05-qualidade-testes.md](05-qualidade-testes.md) | Camadas de teste, casos essenciais, critérios de aceite, observabilidade |
 | [06-gestao-implantacao.md](06-gestao-implantacao.md) | Fases, cronograma estimado, marcos, RACI, riscos, rollout e rollback, rito de governança |
 | [07-organograma-semus-1doc.md](07-organograma-semus-1doc.md) | Organograma da SEMUS transcrito do 1Doc, achados para a migração e pontos a conferir |
+| [08-plano-sei-no-sics-gov.md](08-plano-sei-no-sics-gov.md) | Plano concreto: como o SICS-GOV trata o 1Doc hoje, arquitetura do SEI dentro do SICS, fases, mapeamento, restrições e perguntas |
