@@ -2,6 +2,15 @@
 
 Estado: plano inicial, anterior à fase de descoberta. Nada foi testado contra um ambiente SEI real e nada se sabe ainda sobre o SICS além de ser o sistema de destino. Os fatos sobre o SEI vêm do manual oficial "SEI Web Services, Versão 4.0" e de repositórios públicos do PEN; o que depende da versão instalada está marcado "a confirmar".
 
+## 0. Atualização: o objetivo é substituir o 1Doc
+
+Depois da primeira versão deste plano, o usuário informou que o interesse é **substituir o 1Doc** e enviou o organograma da Secretaria Municipal de Saúde (SEMUS) cadastrado nele. Isso muda o enquadramento:
+
+- O plano abaixo foi escrito como uma integração contínua SEI → SICS. Substituir o 1Doc é um projeto de **migração** (unidades, usuários, processos e documentos em andamento, histórico), com a integração como parte dele.
+- Ainda não está definido qual sistema assume o lugar do 1Doc (SEI, SICS ou os dois, com papéis distintos) nem o que é o SICS. Enquanto isso não for respondido, as seções 1 a 9 valem como desenho da ponte SEI ↔ SICS, não como plano de substituição.
+- O organograma transcrito e os problemas que ele traz para a migração (siglas repetidas, raiz pendurada na comissão do 1Doc, entidades externas como unidades) estão em [07-organograma-semus-1doc.md](07-organograma-semus-1doc.md).
+- Nada foi levantado ainda sobre como extrair dados do 1Doc (API, exportação, contrato). Esse é o primeiro item de descoberta do novo escopo.
+
 ## 1. Objetivo
 
 Levar ao SICS, de forma automática, confiável e auditável, os processos e documentos do SEI que interessam ao negócio, preservando nível de acesso e hipótese legal, sem acoplar o SICS ao SOAP nem às versões do SEI.
@@ -122,3 +131,4 @@ Perguntas equivalentes para o administrador do SEI estão no checklist do arquiv
 | [04-seguranca-conformidade.md](04-seguranca-conformidade.md) | Enquadramento legal, níveis de acesso, credenciais, auditoria, ameaças, checklist de go-live |
 | [05-qualidade-testes.md](05-qualidade-testes.md) | Camadas de teste, casos essenciais, critérios de aceite, observabilidade |
 | [06-gestao-implantacao.md](06-gestao-implantacao.md) | Fases, cronograma estimado, marcos, RACI, riscos, rollout e rollback, rito de governança |
+| [07-organograma-semus-1doc.md](07-organograma-semus-1doc.md) | Organograma da SEMUS transcrito do 1Doc, achados para a migração e pontos a conferir |
