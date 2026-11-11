@@ -139,3 +139,5 @@ Perguntas equivalentes para o administrador do SEI estão no checklist do arquiv
 | [08-plano-sei-no-sics-gov.md](08-plano-sei-no-sics-gov.md) | Plano concreto: como o SICS-GOV trata o 1Doc hoje, arquitetura do SEI dentro do SICS, fases, mapeamento, restrições e perguntas |
 | [09-siga-doc-api-e-modulos.md](09-siga-doc-api-e-modulos.md) | SIGA-Doc como alternativa gratuita ao 1Doc: módulos, API REST, comparação com o SEI, requisitos e pendências |
 | [10-projeto-siga-doc-no-lugar-do-1doc.md](10-projeto-siga-doc-no-lugar-do-1doc.md) | **Projeto em vigor:** frentes de trabalho, integração com o SICS-GOV, fases, riscos e pendências |
+| [11-ilustracao-siga-doc-no-sics-gov.png](11-ilustracao-siga-doc-no-sics-gov.png) | Ilustração da aba SIGA-Doc no dossiê do SICS-GOV |
+| [12-fase0-prova-de-conceito-siga-doc.md](12-fase0-prova-de-conceito-siga-doc.md) | Resultado da Fase 0: SIGA 11.5 instalado em teste, chamadas da API verificadas, achados e pendências |
