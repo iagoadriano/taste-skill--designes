@@ -2,7 +2,11 @@
 
 Estado: plano inicial, anterior à fase de descoberta. Nada foi testado contra um ambiente SEI real e nada se sabe ainda sobre o SICS além de ser o sistema de destino. Os fatos sobre o SEI vêm do manual oficial "SEI Web Services, Versão 4.0" e de repositórios públicos do PEN; o que depende da versão instalada está marcado "a confirmar".
 
-## 0. Atualização: o objetivo é substituir o 1Doc
+## 0. Decisão vigente: SIGA-Doc no lugar do 1Doc
+
+**O usuário decidiu adotar o SIGA-Doc para substituir o 1Doc e deixar o SEI de lado por enquanto.** O projeto em vigor é o [10-projeto-siga-doc-no-lugar-do-1doc.md](10-projeto-siga-doc-no-lugar-do-1doc.md), apoiado nos arquivos 07 (organograma) e 09 (API e módulos do SIGA). Tudo o que trata do SEI (seções 1 a 9 abaixo e arquivos 01 a 06 e 08) fica como referência.
+
+### Histórico: como se chegou aqui
 
 Depois da primeira versão deste plano, o usuário informou que o interesse é **substituir o 1Doc** e enviou o organograma da Secretaria Municipal de Saúde (SEMUS) cadastrado nele. Isso muda o enquadramento:
 
@@ -134,3 +138,4 @@ Perguntas equivalentes para o administrador do SEI estão no checklist do arquiv
 | [07-organograma-semus-1doc.md](07-organograma-semus-1doc.md) | Organograma da SEMUS transcrito do 1Doc, achados para a migração e pontos a conferir |
 | [08-plano-sei-no-sics-gov.md](08-plano-sei-no-sics-gov.md) | Plano concreto: como o SICS-GOV trata o 1Doc hoje, arquitetura do SEI dentro do SICS, fases, mapeamento, restrições e perguntas |
 | [09-siga-doc-api-e-modulos.md](09-siga-doc-api-e-modulos.md) | SIGA-Doc como alternativa gratuita ao 1Doc: módulos, API REST, comparação com o SEI, requisitos e pendências |
+| [10-projeto-siga-doc-no-lugar-do-1doc.md](10-projeto-siga-doc-no-lugar-do-1doc.md) | **Projeto em vigor:** frentes de trabalho, integração com o SICS-GOV, fases, riscos e pendências |

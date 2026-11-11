@@ -1,0 +1,106 @@
+# 10. Projeto: SIGA-Doc no lugar do 1Doc
+
+**Decisão do usuário:** o SIGA-Doc substitui o 1Doc na SEMUS. O SEI fica de lado por enquanto; os arquivos 01 a 06 e 08 ficam como referência, sem execução prevista. Do arquivo 08 aproveitam-se as fases de integração com o SICS-GOV, trocando SEI por SIGA.
+
+**Base deste projeto:** leitura do código do SIGA 11.5 (arquivo 09), leitura parcial do SICS-GOV (arquivo 08) e o organograma do 1Doc (arquivo 07). Nada foi instalado ou testado ainda. Os prazos são estimativas.
+
+## 1. Como vai funcionar depois de pronto
+
+1. O servidor abre o SIGA-Doc, cria o documento a partir de um modelo (ofício, memorando, despacho, processo), assina e tramita para outra unidade. A unidade de destino recebe na sua mesa virtual, dá ciência, responde ou junta ao processo.
+2. O SIGA-Doc guarda o documento, o histórico de tramitação, as assinaturas e a classificação documental. Ele passa a ser o sistema oficial de documentos e processos.
+3. O SICS-GOV continua sendo o sistema de trabalho das contratações. Pela API do SIGA, ele registra o número do processo, mostra a situação e o andamento, e envia ao SIGA os documentos que já gera (DFD, ETP, atas, ofícios), sem digitação repetida.
+4. O 1Doc fica em modo de consulta durante a transição e é desligado depois de decidido o destino do histórico.
+
+## 2. Frentes de trabalho
+
+### Frente A. Instalação e infraestrutura
+
+| Item | Situação |
+|---|---|
+| Servidor de aplicação | Java 8 e JBoss EAP, conforme o `pom.xml`; versão exata a conferir no `siga-docker` |
+| Banco de dados | MySQL (há scripts de migração em todos os módulos) ou Oracle |
+| Arquivos | Local ou Amazon S3 (`siga.armazenamento.arquivo.*`) |
+| Configuração mínima | `siga.base.url`, `siga.jwt.secret`, servidor de e-mail, armazenamento |
+| Endereço | Domínio com HTTPS; precisa ser alcançável pela internet para o SICS-GOV (Base44) chamar a API |
+| Operação | Cópia de segurança diária do banco e dos arquivos, monitoramento, atualização de versão |
+
+Pergunta que define esta frente: quem hospeda (TI da prefeitura, nuvem contratada) e quem mantém.
+
+### Frente B. Estrutura organizacional e usuários
+
+1. Cadastrar o órgão SEMUS e as lotações a partir do arquivo 07. Antes: dar sigla única às 24 farmácias (`SEMUS-DAF-FARM`) e às 5 unidades da COPEC, ligar a Secretaria Executiva direto à SEMUS, e decidir o destino das 9 unidades sem usuário e das entidades externas (ISAC, Instituto Olhar, YANO, Instituto de Prevenção).
+2. Cadastrar as pessoas com cargo, função e lotação. A lista de usuários do 1Doc precisa ser exportada; o organograma só traz a quantidade por unidade.
+3. A carga pode ser feita pela API de identidade (`POST /lotacoes`, `POST /pessoas`) ou pela tela de administração.
+4. Entidades externas: o SIGA tem o conceito de usuário externo (visto no código, não testado). Avaliar se ISAC, Olhar e YANO entram assim, em vez de lotações internas.
+
+### Frente C. Modelos de documento e classificação
+
+1. Levantar os tipos de documento mais usados no 1Doc pela SEMUS (ofício, memorando, despacho, parecer, requisição, processo de compra, processo de pagamento).
+2. Criar os modelos equivalentes no SIGA, com cabeçalho, brasão e numeração da SEMUS.
+3. Definir a tabela de classificação documental e temporalidade, com o arquivo público municipal, se houver.
+4. Definir os níveis de acesso que serão usados.
+
+### Frente D. Integração com o SICS-GOV
+
+| Etapa | O que entra no SICS | Operações da API do SIGA |
+|---|---|---|
+| D1 | Tipo de referência `siga` no dossiê, ao lado de `1doc`; busca pelo número | nenhuma |
+| D2 | Função `sigaProxy` (autentica e guarda o token) e aba "SIGA" no dossiê com situação, histórico e PDF | `POST /autenticar`, `GET /documentos/{sigla}`, `GET /documentos/{sigla}/dossie`, `GET /documentos/{sigla}/pdf-completo` |
+| D3 | Acompanhamento agendado gravando novidades na linha do tempo (`ProcessEvent`) | `GET /documentos/{sigla}`, `GET /lista` |
+| D4 | Criar processo ou documento a partir do dossiê, anexar os PDFs gerados pelo SICS e tramitar | `POST /documentos`, `POST /documentos/{sigla}/anexar`, `POST /documentos/{sigla}/tramitar` |
+| D5 | Regras que hoje exigem "protocolo no 1Doc" (credenciamento, requisição de ata, documentos SEPLAN) passam a aceitar SIGA | `POST /documentos/{sigla}/gerar-protocolo` |
+
+Campos já conferidos no código: `POST /documentos` aceita `modelo`, `subscritor`, `titular`, `classificacao`, `lotadestinatario`, `pessoadestinatario`, `descricaodocumento`, `nivelacesso`, `entrevista` e `arquivo`; `tramitar` aceita `lotacao`, `matricula`, `orgao`, `observacao` e `dataDevolucao`.
+
+Ponto de atenção na D4: a API autentica como um usuário. É preciso decidir se o SICS age com um usuário de serviço (mais simples, mas todo documento aparece como criado por ele) ou em nome de cada servidor (mais correto, exige ligar cada conta do SICS a uma conta do SIGA). A assinatura deve continuar sendo feita pela pessoa.
+
+### Frente E. Jurídico e normativo
+
+1. Ato municipal instituindo o SIGA-Doc como sistema oficial de documentos e processos da SEMUS, com as formas de assinatura aceitas (login e senha ou certificado digital).
+2. Parecer do encarregado de dados sobre hospedagem e acesso.
+3. Decisão sobre o histórico do 1Doc: exportar e guardar, migrar para o SIGA, ou manter acesso de consulta. Depende do contrato com o fornecedor do 1Doc, que não foi levantado.
+4. Licença AGPL-3.0: usar sem alterar não gera obrigação; alterações no código do SIGA oferecido em rede precisam ser publicadas.
+
+### Frente F. Implantação e treinamento
+
+1. Piloto na Diretoria de Compras (`SEMUS-DCOMP` e subordinadas), que já usa o SICS.
+2. Expansão por superintendência: SUPADM, depois SUPAE, depois SUPAP (a maior, com farmácias e UBS).
+3. Treinamento por perfil: quem só recebe e dá ciência, quem elabora e assina, quem administra.
+4. Período de convivência: documento novo nasce no SIGA; o que está em andamento no 1Doc termina lá.
+
+## 3. Fases e estimativa
+
+| Fase | Entrega | Critério de saída | Estimativa |
+|---|---|---|---|
+| 0. Prova de conceito | SIGA 11.5 instalado em ambiente de teste; um documento criado, assinado e tramitado pela tela e pela API | API responde como descrito no arquivo 09; decisão de seguir ou não | 2 a 3 semanas |
+| 1. Preparação | Organograma corrigido, lista de usuários, modelos de documento, minuta do ato municipal, definição de hospedagem | Dados prontos para carga; ato encaminhado | 3 a 4 semanas |
+| 2. Produção | Ambiente de produção com HTTPS, cópia de segurança e monitoramento; lotações e pessoas carregadas | Ambiente aceito pela TI | 2 a 4 semanas |
+| 3. Piloto | Diretoria de Compras usando o SIGA; etapas D1 e D2 no SICS | Um mês sem pendência grave | 4 a 6 semanas |
+| 4. Integração completa | Etapas D3, D4 e D5 no SICS | Documentos do SICS chegando ao SIGA sem digitação repetida | 4 a 6 semanas |
+| 5. Expansão | Demais superintendências, com treinamento | Todas as unidades ativas | 6 a 10 semanas |
+| 6. Encerramento do 1Doc | Histórico tratado, acesso de consulta definido, contrato encerrado | Decisão formal registrada | a definir |
+
+As fases 3 e 4 podem correr em paralelo. O que mais mexe no prazo: a definição de quem hospeda, a publicação do ato municipal e a data de fim do contrato do 1Doc.
+
+## 4. Riscos principais
+
+| Risco | Efeito | Como reduzir |
+|---|---|---|
+| Ninguém para manter um servidor Java com banco de dados | Sistema oficial fora do ar ou sem cópia de segurança | Definir o responsável antes da Fase 2; considerar hospedagem contratada |
+| Instalação mais difícil que o esperado (o pacote Docker está sem atualização desde 2023) | Atraso já na Fase 0 | A Fase 0 existe para descobrir isso cedo, antes de qualquer compromisso |
+| Recursos do 1Doc sem equivalente (atendimento ao cidadão, assinatura pelo Gov.br) | Perda de funcionalidade para quem usa hoje | Listar o que a SEMUS realmente usa no 1Doc e testar cada item na Fase 0 |
+| Histórico preso no 1Doc | Perda de acesso a documentos antigos | Levantar o contrato e as formas de exportação antes de marcar o desligamento |
+| Resistência dos usuários à troca | Uso paralelo e documentos em dois lugares | Piloto pequeno, treinamento por perfil, data clara de corte |
+| SIGA inacessível pela internet | SICS não consegue chamar a API | Publicar o endereço com HTTPS ou um ponto de entrada restrito |
+
+## 5. O que ainda não foi verificado
+
+1. Se a versão 11.5 sobe e funciona com MySQL.
+2. Se há login ou assinatura pelo Gov.br. Existe um módulo de login externo (`siga-oidc`), mas não confirmei compatibilidade.
+3. Se o cidadão consegue abrir pedido. Vi no código consulta pública de processo, protocolo de acompanhamento e assinador externo, mas não abertura de pedido.
+4. Quais recursos do 1Doc a SEMUS usa de fato além de memorando, ofício e processo.
+5. Como exportar os dados do 1Doc.
+
+## 6. Próximo passo
+
+Executar a Fase 0. Para isso é preciso um lugar onde subir o ambiente de teste: uma máquina da prefeitura, uma máquina virtual em nuvem, ou o computador de quem vai conduzir o teste (com Docker).
