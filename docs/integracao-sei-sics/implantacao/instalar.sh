@@ -26,14 +26,18 @@ fi
 echo "Compilando e subindo o SIGA-Doc. A primeira vez leva de 10 a 20 minutos."
 docker compose up -d --build
 echo "Aguardando o servidor iniciar..."
-for _ in $(seq 1 60); do
-  if docker compose logs appserver 2>/dev/null | grep -q WFLYSRV0025; then break; fi
+pronto=nao
+for _ in $(seq 1 90); do
+  # Consulta o proprio SIGA de dentro do servidor; mais confiavel que ler o log.
+  if docker compose exec -T appserver wget -q -O /dev/null http://localhost:8080/sigaex/ 2>/dev/null; then pronto=sim; break; fi
   sleep 10
 done
+[ "$pronto" = sim ] || { echo "O servidor nao respondeu em 15 minutos. Veja: docker compose logs appserver"; exit 1; }
 docker compose ps
 cat <<'FIM'
 
 SIGA-Doc no ar. Acesse /siga no endereco da maquina (ou no dominio informado).
+No Codespaces: aba PORTS (Portas), linha 8080 "SIGA-Doc", icone do globo.
 Usuario de teste: ZZ99999   Senha: Password1
 ATENCAO: essa senha e publica. Troque-a no primeiro acesso e mantenha o
 firewall da maquina restrito aos enderecos de quem vai testar.

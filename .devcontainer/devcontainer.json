@@ -1,0 +1,19 @@
+{
+  "name": "SIGA-Doc de homologação (SEMUS)",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "hostRequirements": { "cpus": 4, "memory": "16gb", "storage": "64gb" },
+  "containerEnv": {
+    "SIGA_PORTA_HTTP": "8080",
+    "SIGA_PORTA_HTTPS": "8443"
+  },
+  "postCreateCommand": "bash docs/integracao-sei-sics/implantacao/instalar.sh",
+  "postStartCommand": "cd docs/integracao-sei-sics/implantacao && if [ -f .env ]; then docker compose up -d; fi",
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": { "label": "SIGA-Doc", "onAutoForward": "notify" },
+    "8443": { "onAutoForward": "ignore" }
+  }
+}

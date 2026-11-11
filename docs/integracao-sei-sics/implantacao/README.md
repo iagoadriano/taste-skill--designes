@@ -41,6 +41,24 @@ cd taste-skill--designes/docs/integracao-sei-sics/implantacao && sudo ./instalar
 
 A primeira execução compila o SIGA e leva de 10 a 20 minutos. Ao final, acesse `/siga` no endereço da máquina com o usuário de teste `ZZ99999` e a senha `Password1`.
 
+## 2.1 Sem máquina própria: GitHub Codespaces
+
+O repositório traz a configuração `.devcontainer/devcontainer.json`, que faz o Codespaces criar o ambiente e executar a instalação sozinho.
+
+1. No GitHub, abra o repositório e selecione o ramo `claude/compassionate-brahmagupta-9iebcb`.
+2. Clique em **Code**, aba **Codespaces**, menu **...**, opção **New with options**.
+3. Em *Machine type*, escolha **4-core, 16 GB** (o de 2 núcleos não comporta o SIGA) e confirme.
+4. Aguarde de 15 a 25 minutos. O progresso aparece no terminal; ao final surge "SIGA-Doc no ar".
+5. Abra a aba **PORTS**, localize a porta **8080 (SIGA-Doc)** e clique no ícone do globo.
+6. Entre com `ZZ99999` e `Password1`.
+
+Pontos de atenção:
+
+- O endereço é privado por padrão: só você, logado no GitHub, consegue abrir. Para o SICS-GOV chamar a API é preciso mudar a visibilidade da porta 8080 para **Public** (botão direito na porta, *Port Visibility*). Faça isso só durante o teste, e depois de trocar a senha do usuário de teste.
+- O Codespaces para sozinho após um período sem uso e o endereço deixa de responder. Ao reabrir, o SIGA volta com os dados preservados. Um codespace apagado perde tudo.
+- O uso consome a cota mensal da sua conta GitHub; a máquina de 4 núcleos gasta a cota mais depressa.
+- Não foi testado dentro do Codespaces. O que foi testado: o kit na porta 8080, o redirecionamento da raiz para `/siga/` e a geração de endereços `https` corretos quando o pedido chega por um encaminhador como o do Codespaces.
+
 ## 3. Logo depois de instalar
 
 1. **Troque a senha do usuário de teste.** Ela é pública, está na documentação do SIGA.
@@ -55,7 +73,8 @@ A primeira execução compila o SIGA e leva de 10 a 20 minutos. Ao final, acesse
 | `Dockerfile` | Compila o SIGA no commit fixado da versão 11.5 e monta o servidor de aplicação (JBoss EAP 7.2.5, Java 8) |
 | `iniciar.sh` | Na partida do servidor, aplica senhas e nome da instituição na configuração e desliga o carimbo de tempo externo se nenhuma URL for informada |
 | `docker-compose.yml` | Define os serviços: SIGA, MySQL 8.0.21, Redis, e-mail de teste e a porta de entrada (Caddy) |
-| `Caddyfile` | Encaminha o tráfego para o SIGA e, com domínio, obtém o certificado HTTPS |
+| `Caddyfile` | Encaminha o tráfego para o SIGA, redireciona a raiz para `/siga/` e, com domínio, obtém o certificado HTTPS |
+| `../../../.devcontainer/devcontainer.json` | Configuração do Codespaces: Docker, máquina de 4 núcleos, porta 8080 e instalação automática |
 
 ## 5. Operação básica
 

@@ -12,6 +12,8 @@ prop sigaex.redis.password "${REDIS_SENHA}"
 sed -i "s|<password>siga</password>|<password>${MYSQL_SENHA}</password>|g" "${CFG}"
 # Carimbo de tempo: sem URL definida, a assinatura com senha funciona sem carimbo.
 if [ -n "${SIGA_CARIMBO_URL:-}" ]; then prop sigaex.carimbo.url "${SIGA_CARIMBO_URL}"; else sed -i '/sigaex.carimbo.url/d' "${CFG}"; fi
+# Atras de um proxy HTTPS, o servidor deve confiar no endereco e protocolo encaminhados.
+sed -i 's|<http-listener name="default" socket-binding="http"|<http-listener name="default" socket-binding="http" proxy-address-forwarding="true"|' "${CFG}"
 prop siga.cabecalho.titulo "${SIGA_TITULO:-Secretaria Municipal de Saúde}"
 prop sigaex.modelos.cabecalho.titulo "${SIGA_MODELO_TITULO:-PREFEITURA MUNICIPAL}"
 prop sigaex.modelos.cabecalho.subtitulo "${SIGA_MODELO_SUBTITULO:-SECRETARIA MUNICIPAL DE SAÚDE}"

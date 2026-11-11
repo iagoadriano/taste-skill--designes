@@ -55,7 +55,7 @@ services:
     image: caddy:2-alpine
     restart: unless-stopped
     depends_on: [appserver]
-    ports: ["80:80", "443:443"]
+    ports: ["${SIGA_PORTA_HTTP:-80}:80", "${SIGA_PORTA_HTTPS:-443}:443"]
     environment:
       SIGA_DOMINIO: ${SIGA_DOMINIO:-:80}
     volumes:

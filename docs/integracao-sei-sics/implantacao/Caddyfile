@@ -1,3 +1,12 @@
+{
+	# Aceita os cabecalhos de encaminhamento vindos de redes privadas
+	# (necessario atras do encaminhador de portas do Codespaces).
+	servers {
+		trusted_proxies static private_ranges
+	}
+}
+
 {$SIGA_DOMINIO} {
+	redir / /siga/
 	reverse_proxy appserver:8080
 }
