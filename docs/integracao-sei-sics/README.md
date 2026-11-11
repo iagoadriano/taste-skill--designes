@@ -133,3 +133,4 @@ Perguntas equivalentes para o administrador do SEI estão no checklist do arquiv
 | [06-gestao-implantacao.md](06-gestao-implantacao.md) | Fases, cronograma estimado, marcos, RACI, riscos, rollout e rollback, rito de governança |
 | [07-organograma-semus-1doc.md](07-organograma-semus-1doc.md) | Organograma da SEMUS transcrito do 1Doc, achados para a migração e pontos a conferir |
 | [08-plano-sei-no-sics-gov.md](08-plano-sei-no-sics-gov.md) | Plano concreto: como o SICS-GOV trata o 1Doc hoje, arquitetura do SEI dentro do SICS, fases, mapeamento, restrições e perguntas |
+| [09-siga-doc-api-e-modulos.md](09-siga-doc-api-e-modulos.md) | SIGA-Doc como alternativa gratuita ao 1Doc: módulos, API REST, comparação com o SEI, requisitos e pendências |
