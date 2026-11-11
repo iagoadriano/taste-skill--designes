@@ -104,3 +104,12 @@ As fases 3 e 4 podem correr em paralelo. O que mais mexe no prazo: a definição
 ## 6. Próximo passo
 
 Executar a Fase 0. Para isso é preciso um lugar onde subir o ambiente de teste: uma máquina da prefeitura, uma máquina virtual em nuvem, ou o computador de quem vai conduzir o teste (com Docker).
+
+## 7. Registro: aba de demonstração no SICS-GOV
+
+Em 11/11/2026 foi incluída no SICS-GOV, sem publicar, uma aba "SIGA-Doc" de demonstração no dossiê de licitação, visível somente para usuários com papel `admin`. Ela mostra dados fictícios fixos e não chama nenhum serviço.
+
+- Arquivo novo: `src/components/dossiers/SigaDocPreviewPanel.jsx`.
+- Alterados: `src/pages/DossierDetail.jsx` (botão e conteúdo da aba, condicionados a `admin`) e `src/lib/dossiers/useDossierTab.js` (identificador `siga_doc` na lista de abas válidas).
+- Pontos de restauração no Base44: "Antes da aba SIGA-Doc (demonstração para admin)" e "Aba SIGA-Doc de demonstração no dossiê (somente admin)".
+- Verificação feita: lint sem erros, os 4 testes de `useDossierTab` passando e compilação concluída. A tela não foi vista renderizada com usuário logado.
