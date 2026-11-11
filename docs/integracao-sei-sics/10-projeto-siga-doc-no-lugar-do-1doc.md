@@ -113,3 +113,9 @@ Em 11/11/2026 foi incluída no SICS-GOV, sem publicar, uma aba "SIGA-Doc" de dem
 - Alterados: `src/pages/DossierDetail.jsx` (botão e conteúdo da aba, condicionados a `admin`) e `src/lib/dossiers/useDossierTab.js` (identificador `siga_doc` na lista de abas válidas).
 - Pontos de restauração no Base44: "Antes da aba SIGA-Doc (demonstração para admin)" e "Aba SIGA-Doc de demonstração no dossiê (somente admin)".
 - Verificação feita: lint sem erros, os 4 testes de `useDossierTab` passando e compilação concluída. A tela não foi vista renderizada com usuário logado.
+
+## 8. Registro: Fase 0 concluída e hospedagem definida
+
+- Fase 0 executada em 11/11/2026; resultado no arquivo 12.
+- O usuário definiu que o ambiente de teste ficará em uma máquina virtual em nuvem. O kit de instalação está na pasta [implantacao](implantacao/README.md).
+- Falta o usuário (ou a TI) criar a máquina e executar a instalação; a sessão que preparou o kit não tem conta de nuvem nem acesso remoto por terminal.

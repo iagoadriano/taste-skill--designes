@@ -1,0 +1,73 @@
+# SIGA-Doc de homologacao da SEMUS. Suba com ./instalar.sh (ele cria o arquivo .env).
+services:
+  appserver:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      mysqlserver: { condition: service_healthy }
+      redisserver: { condition: service_started }
+      emailserver: { condition: service_started }
+    environment:
+      SIGA_JWT_SECRET: ${SIGA_JWT_SECRET}
+      SIGA_SINC_SENHA: ${SIGA_SINC_SENHA}
+      REDIS_SENHA: ${REDIS_SENHA}
+      MYSQL_SENHA: ${MYSQL_SENHA}
+      SIGA_CARIMBO_URL: ${SIGA_CARIMBO_URL:-}
+      SIGA_TITULO: ${SIGA_TITULO:-Secretaria Municipal de Saúde}
+      SIGA_MODELO_TITULO: ${SIGA_MODELO_TITULO:-PREFEITURA MUNICIPAL}
+      SIGA_MODELO_SUBTITULO: ${SIGA_MODELO_SUBTITULO:-SECRETARIA MUNICIPAL DE SAÚDE}
+    volumes:
+      - siga-log:/var/log
+      - siga-tmp:/var/tmp/siga
+    networks: [siga]
+
+  mysqlserver:
+    image: mysql:8.0.21
+    restart: unless-stopped
+    environment:
+      TZ: America/Araguaina
+      MYSQL_ROOT_PASSWORD: ${MYSQL_SENHA}
+      MYSQL_ROOT_HOST: "%"
+    volumes:
+      - ./mysql-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - mysql-dados:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+    networks: [siga]
+
+  redisserver:
+    image: redis:alpine
+    restart: unless-stopped
+    command: ["redis-server", "--requirepass", "${REDIS_SENHA}"]
+    networks: [siga]
+
+  # Servidor de e-mail de teste: captura as mensagens, nao envia nada para fora.
+  emailserver:
+    image: schickling/mailcatcher
+    restart: unless-stopped
+    networks: [siga]
+
+  # Porta de entrada. Com SIGA_DOMINIO definido, emite o certificado HTTPS sozinho.
+  entrada:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on: [appserver]
+    ports: ["80:80", "443:443"]
+    environment:
+      SIGA_DOMINIO: ${SIGA_DOMINIO:-:80}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-dados:/data
+    networks: [siga]
+
+volumes:
+  mysql-dados: {}
+  siga-log: {}
+  siga-tmp: {}
+  caddy-dados: {}
+
+networks:
+  siga: {}

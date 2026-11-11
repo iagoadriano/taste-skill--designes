@@ -1,0 +1,3 @@
+{$SIGA_DOMINIO} {
+	reverse_proxy appserver:8080
+}
