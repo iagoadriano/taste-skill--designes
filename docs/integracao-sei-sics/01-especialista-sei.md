@@ -44,7 +44,7 @@ Operações SOAP confirmadas no manual 4.0:
 - **Detectar novidades exige polling** por processo conhecido:
   - `consultarProcedimento` com `SinRetornarUltimoAndamento=S`; ou
   - `listarAndamentos`, que obriga a filtrar por `Andamentos`, `Tarefas` ou `TarefasModulos` (ids de tarefa estão em `TarefaRN.php`).
-- **Descobrir processos novos não é possível por SOAP.** Alternativas: o SICS originar o processo via `gerarProcedimento`, um módulo SEI customizado, ou leitura de banco (não suportada oficialmente).
+- **Descobrir processos novos não é possível por SOAP.** Alternativas: o SICS originar o processo via `gerarProcedimento`, lista de protocolos fornecida pelo administrador do SEI (relatório ou exportação periódica), listagem via mod-wssei (se instalado; a confirmar), ou um módulo SEI customizado. Leitura direta do banco pelo integrador não é suportada oficialmente e foi descartada (README, decisão D1).
 - **Sigilosos:** processos sigilosos e seus documentos **não são retornados** nas consultas; também não podem ser bloqueados.
 - **Custo de consulta:** cada sinalizador `SinRetornar*` gera processamento extra; pedir só o necessário.
 - **Arquivos:** `Conteudo` em Base64 ou `ConteudoMTOM` (só externos). Para arquivos grandes, `adicionarArquivo` (nome, tamanho, MD5) mais `adicionarConteudoArquivo` em partes, depois `IdArquivo` em `incluirDocumento`. Arquivos não associados são apagados após 24 h.
@@ -73,7 +73,7 @@ Operações SOAP confirmadas no manual 4.0:
 9. Hipóteses legais vigentes e política para restritos e sigilosos.
 10. Usuário e unidade que figurarão nos andamentos gerados pela integração.
 11. Limites de volume ou frequência de polling aceitáveis.
-12. Possibilidade de módulo customizado ou visão de banco para descoberta de processos novos.
+12. Para a descoberta de processos novos: possibilidade de o administrador fornecer lista periódica de protocolos (relatório ou exportação por unidade, tipo e período), de usar o mod-wssei ou, em último caso, de instalar módulo customizado. O integrador não acessa o banco do SEI (README, decisão D1).
 
 ## Fontes
 

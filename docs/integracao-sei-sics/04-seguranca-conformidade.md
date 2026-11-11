@@ -22,7 +22,7 @@ Não é parecer jurídico: é orientação técnica, a validar com o jurídico e
 
 | Nível | Recomendação padrão |
 |---|---|
-| **Público** | Sincronizar metadados e documentos. Ainda pode conter dados pessoais, então aplicar minimização. |
+| **Público** | Sincronizar metadados e link de acesso. Cópia do binário só após a confirmação da Fase 0 (arquivo 03, seção 5). Ainda pode conter dados pessoais, então aplicar minimização. |
 | **Restrito** | Primeira entrega: só metadados mínimos (número, tipo, unidade, nível, hipótese legal). Conteúdo só depois de RIPD e de o SICS comprovar controle de acesso equivalente. |
 | **Sigiloso** | Fora do escopo: rejeitar e registrar. Inclusão futura só com autorização formal. |
 
@@ -50,7 +50,7 @@ Regras de propagação:
 - Não registrar conteúdo, nomes de interessados, CPF, payloads SOAP nem credenciais. Mascarar mensagens de erro. A dead-letter guarda referência e hash, não o payload em claro.
 - Logs imutáveis (append-only ou WORM), enviados a um SIEM, com acesso segregado da equipe de operação.
 - Retenção conforme a tabela de temporalidade do órgão (a confirmar). Sugestão inicial: no mínimo 12 meses online, mais arquivo.
-- **Não repúdio:** hash SHA-256 por documento na origem e no destino, credencial exclusiva por sistema e encadeamento ou assinatura dos lotes de log.
+- **Não repúdio:** hash SHA-256 do payload canônico na origem e no destino (e do binário, quando houver cópia), credencial exclusiva por sistema e encadeamento ou assinatura dos lotes de log.
 - Alertas para volume anômalo, tentativa de acesso a sigiloso e falhas de autenticação.
 
 ## 5. Segregação de ambientes
@@ -64,7 +64,7 @@ Regras de propagação:
 
 | Ameaça | Impacto | Controle |
 |---|---|---|
-| Vazamento da chave do serviço | Leitura indevida do SEI | Cofre, restrição de rede, rotação, escopo mínimo |
+| Vazamento da chave do serviço | Leitura indevida do SEI | Cofre, firewall por IP de saída (controle de rede, não o modo Endereço do SEI), rotação, escopo mínimo |
 | Perda do nível de acesso na sincronização | Exposição de restrito no SICS | Campo obrigatório, fail-closed, testes automatizados |
 | Reclassificação não propagada | Dado restrito visível como público | Ressincronização e expurgo |
 | Escopo excessivo do serviço | Coleta além da finalidade | Limite por unidade e tipo, revisão periódica |

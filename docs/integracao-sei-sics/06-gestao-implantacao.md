@@ -33,7 +33,7 @@
 Total sem a Fase 8: cerca de 25 semanas. Premissas que mais alteram o prazo:
 
 - **Prazo do órgão para liberar credencial do SEI** (homologação e produção): principal fator; iniciar o pedido na semana 2.
-- **Forma de descoberta de processos:** se exigir módulo customizado no SEI ou visão de banco, a Fase 2 e a Fase 3 crescem.
+- **Forma de descoberta de processos:** se exigir módulo customizado no SEI ou rotina de exportação pelo administrador, a Fase 2 e a Fase 3 crescem.
 - **Maturidade da interface do SICS:** se não houver API de ingestão, a Fase 3 cresce.
 - **Tamanho e dedicação da equipe.**
 - **Parecer LGPD e tratamento de processos restritos.**
@@ -74,7 +74,7 @@ R = responsável, A = aprova, C = consultado, I = informado. Gov = Governador; E
 |---|---|---|---|---|
 | 1 | Atraso na liberação da credencial do SEI | Alta | Alto | Pedir na semana 2; simulador do SEI para não parar a Fase 3 |
 | 2 | SICS sem API adequada de ingestão | Média | Alto | Verificar na Fase 0; adaptador isolado; plano alternativo de carga |
-| 3 | SeiWS não lista nem pesquisa processos, logo não há como descobrir processos novos só por SOAP | Alta | Alto | Definir na Fase 0 a fonte da lista de processos (SICS, mod-wssei, relatório do administrador, módulo ou visão autorizada); go/no-go no M0 |
+| 3 | SeiWS não lista nem pesquisa processos, logo não há como descobrir processos novos só por SOAP | Alta | Alto | Definir na Fase 0 a fonte da lista de processos (SICS, mod-wssei, lista periódica do administrador ou, em último caso, módulo customizado; sem acesso do integrador ao banco do SEI); go/no-go no M0 |
 | 4 | Exposição de processos restritos ou de dados pessoais | Média | Alto | Filtro por nível de acesso com fail-closed; mínimo privilégio; parecer do DPO antes do M1 |
 | 5 | Mapeamento incompleto de tipos e metadados | Alta | Médio | Inventário na Fase 0; fila de rejeitados; reconciliação |
 | 6 | Sobrecarga do SEI por volume de chamadas | Média | Alto | Limite de taxa, janelas acordadas com o AdmSEI, teste de carga |
@@ -82,7 +82,7 @@ R = responsável, A = aprova, C = consultado, I = informado. Gov = Governador; E
 | 8 | Atualização do SEI quebra o contrato | Baixa | Alto | Testes de contrato; acompanhamento do calendário de versões |
 | 9 | Vazamento ou expiração de credencial | Baixa | Alto | Cofre de segredos, rotação, restrição de rede, alertas |
 | 10 | Indisponibilidade das partes humanas para decisões | Média | Médio | Calendário de decisões; substitutos nomeados |
-| 11 | Documentos volumosos ou formatos não suportados | Média | Médio | Limites definidos; transferência assíncrona; registro de exceções |
+| 11 | Obtenção do binário por Web Service não confirmada; documentos volumosos ou formatos não suportados | Média | Médio | MVP só com metadados e link; confirmar na Fase 0; se houver cópia, limites definidos e transferência assíncrona |
 
 ## 6. Rollout, rollback e operação assistida
 

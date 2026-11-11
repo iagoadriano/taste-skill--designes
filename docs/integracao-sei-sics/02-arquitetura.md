@@ -18,9 +18,12 @@ Não há acesso direto ao banco do SEI: toda leitura e escrita passa pelos servi
 
 - **Risco principal**: o SeiWS consulta por protocolo e não tem operação do tipo "liste processos alterados desde X" (confirmado pelo Especialista em SEI). É preciso definir como o integrador descobre o conjunto de processos a acompanhar. Opções:
   - lista de interesse mantida pelo SICS ou pelo integrador;
-  - listagem por unidade via mod-wssei, se instalado;
+  - listagem por unidade via mod-wssei, se instalado (capacidade a confirmar no Swagger da instalação);
   - processos gerados pela própria integração (`gerarProcedimento`);
-  - módulo SEI customizado ou visão de banco fornecida pela TI do órgão (ver decisão do Governador no README).
+  - lista periódica de protocolos gerada e entregue pelo administrador do SEI (relatório ou exportação), sem acesso do integrador ao banco;
+  - módulo SEI customizado, apenas como último recurso.
+
+  Decisão D1 do Governador (README): o integrador não lê o banco do SEI nem visões dele, o que mantém a ADR 2. A ordem de preferência é a da lista acima, e a escolha é fechada no marco M0.
 - **Marca d'água**: por processo, o último andamento processado (IdAndamento/DataHora) mais o hash do snapshot. Relê-se com janela de sobreposição e deduplica-se; o relógio local não serve de referência.
 - **Frequência (estimativa, a calibrar com volume e limites do SEI)**:
   - processos ativos: a cada 5 a 15 min;
@@ -147,4 +150,4 @@ A escolha depende da stack e da operação do órgão.
 12. Volume estimado e carga inicial histórica.
 13. Se o SICS emite eventos (necessário para o retorno SICS → SEI).
 
-**A confirmar do lado SEI:** versão, operações liberadas ao serviço cadastrado, restrição por IP, existência do mod-wssei e limites de uso acordados com o administrador.
+**A confirmar do lado SEI:** versão, operações liberadas ao serviço cadastrado, modo de autenticação do serviço (usar Chave de Acesso; o modo Endereço/IP está em depreciação), liberação de firewall para o IP de saída do integrador, existência do mod-wssei e limites de uso acordados com o administrador.

@@ -25,7 +25,7 @@ Premissas: nomes de campos do SEI seguem o SeiWS e devem ser confirmados no WSDL
 | Interessados | processo.interessados[] | lista | N | deduplicar por sigla+nome | a definir |
 | Assuntos | processo.assuntos[] | lista | N | código + descrição | a definir |
 | UnidadesProcedimentoAberto | processo.unidades_abertas[] | lista ref | N | vazio ⇒ situação "concluído" | a definir |
-| AndamentoGeracao | processo.data_autuacao | datetime | S | dd/mm/aaaa hh:mm:ss → ISO 8601, fuso America/Sao_Paulo | a definir |
+| AndamentoGeracao | processo.data_autuacao | datetime | S | dd/mm/aaaa hh:mm:ss → ISO 8601, no fuso do servidor SEI (a confirmar; America/Sao_Paulo é suposição) | a definir |
 | AndamentoConclusao | processo.data_conclusao | datetime | N | idem | a definir |
 | UltimoAndamento | andamento (último) | objeto | N | upsert por id do andamento | a definir |
 | ProcedimentosRelacionados / Anexados | relacionados[] / anexados[] | lista ref | N | resolver por IdProcedimento; pendência se alvo ainda não carregado | a definir |
@@ -69,7 +69,7 @@ Estrutura comum: codigo_sei, descricao_sei, codigo_sics (a definir), vigencia_in
 | Cópia no SICS | disponível sem o SEI; permite busca e indexação; integridade por hash | volume e custo; replica dado restrito (LGPD, controle de acesso); risco de cópia desatualizada ou de documento cancelado; obtenção do binário via Web Service a confirmar |
 | Só link/referência | leve; SEI segue como fonte única; permissões ficam no SEI | depende de disponibilidade e sessão no SEI; sem busca no conteúdo |
 
-Recomendação: referência + metadados + hash por padrão, com cópia apenas dos documentos públicos e assinados que o negócio exigir. Sigilosos nunca são copiados.
+Recomendação (decisão D5 do Governador, README): no MVP, só metadados + `LinkAcesso` + hash do payload canônico. A cópia de binário fica fora do MVP, porque o manual 4.0 não mostra retorno de conteúdo por Web Service (a confirmar na Fase 0). Se confirmada a forma de obtenção, a cópia se limita a documentos públicos que o negócio exigir; restritos dependem de RIPD (arquivo 04) e sigilosos nunca são copiados. O hash de binário só existe quando há cópia.
 
 ## 6. Reconciliação e qualidade
 

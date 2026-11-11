@@ -29,10 +29,10 @@ Premissa: nada é assumido sobre o SICS. Tudo o que depende dele (contrato, limi
 
 | ID | Cenário | Resultado esperado |
 |---|---|---|
-| CT-01 | Processo público novo no SEI | Criado uma vez no SICS, campos conforme mapeamento |
+| CT-01 | Processo público novo no SEI, descoberto pelo mecanismo definido no M0 (o SeiWS não lista processos) | Criado uma vez no SICS, campos conforme mapeamento |
 | CT-02 | Processo já sincronizado é alterado (andamento/documento novo) | Atualização no SICS, sem novo registro |
 | CT-03 | Mesmo item entregue duas vezes (reprocessamento) | Um único registro; segunda entrega é no-op |
-| CT-04 | Processo restrito ou sigiloso | Restrito: só metadados mínimos; sigiloso: não enviado. Sentinela ausente no SICS, logs, fila e dead-letter |
+| CT-04 | Processo restrito ou sigiloso | Restrito: só metadados mínimos; sigiloso: não enviado, tanto se o SEI não o retornar (comportamento do manual 4.0) quanto se retornar (filtro do intermediário, testado com resposta simulada). Sentinela ausente no SICS, logs, fila e dead-letter |
 | CT-05 | Processo muda de público para restrito após sincronizado | Conteúdo revogado ou expurgado no destino; evento auditado |
 | CT-06 | SEI indisponível por período prolongado | Retentativas com backoff; marca d'água não avança; recuperação sem perda nem duplicata |
 | CT-07 | Timeout no meio de um lote | Lote retomado do ponto consistente; nenhum item pulado |
@@ -78,6 +78,7 @@ As fases seguem a numeração do arquivo 06.
 | Fase | Pronto quando |
 |---|---|
 | 0 Descoberta e 1 Desenho | Operações do SeiWS confirmadas no WSDL; contrato do SICS documentado; regra para restrito/sigiloso aprovada por negócio e segurança; mapeamento de campos assinado |
+| 2 Habilitação no SEI | Chamada autenticada por Chave de Acesso bem-sucedida no SEI de homologação; operações e unidades liberadas conferidas contra o escopo |
 | 3 Construção do MVP | Unitários e contrato verdes no CI; simulador do SEI e stub do SICS disponíveis; logs e métricas implementados |
 | 4 Testes e homologação | Casos críticos aprovados em homologação; dead-letter e reprocessamento operáveis; carga e resiliência executadas; metas da seção 4 calibradas e atingidas; alertas validados; runbook e rollback testados |
 | 5 Piloto e 6 Rollout | Checklist go/no-go assinado; carga inicial reconciliada; monitoramento assistido definido |
