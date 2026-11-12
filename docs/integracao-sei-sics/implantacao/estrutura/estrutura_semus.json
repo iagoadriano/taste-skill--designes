@@ -1,0 +1,1322 @@
+[
+ {
+  "sigla_1doc": "SEMUS",
+  "sigla": "GAB",
+  "nome": "SECRETARIA MUNICIPAL DE SAÚDE - GABINETE",
+  "pai": null,
+  "usuarios_1doc": 1,
+  "nivel": 0
+ },
+ {
+  "sigla_1doc": "SEMUS-CSDOC",
+  "sigla": "CSDOC",
+  "nome": "COMISSÃO DE SUPORTE 1DOC - SEMUS",
+  "pai": "GAB",
+  "usuarios_1doc": 4,
+  "nivel": 1
+ },
+ {
+  "sigla_1doc": "SEMUS-EXEC",
+  "sigla": "EXEC",
+  "nome": "SECRETARIA EXECUTIVA",
+  "pai": "GAB",
+  "usuarios_1doc": 1,
+  "nivel": 2
+ },
+ {
+  "sigla_1doc": "SEMUS-ASTEC",
+  "sigla": "ASTEC",
+  "nome": "ASSESSORIA TÉCNICA",
+  "pai": "EXEC",
+  "usuarios_1doc": 5,
+  "nivel": 3
+ },
+ {
+  "sigla_1doc": "SEMUS-CMS",
+  "sigla": "CMS",
+  "nome": "CONSELHO MUNICIPAL DE SAÚDE",
+  "pai": "EXEC",
+  "usuarios_1doc": 4,
+  "nivel": 3
+ },
+ {
+  "sigla_1doc": "SEMUS-COPEC",
+  "sigla": "COPEC",
+  "nome": "PRESIDÊNCIA",
+  "pai": "EXEC",
+  "usuarios_1doc": 1,
+  "nivel": 3
+ },
+ {
+  "sigla_1doc": "SEMUS-COPEC",
+  "sigla": "COPEC-ATD",
+  "nome": "ANÁLISE TÉCNICA E DOCUMENTAL",
+  "pai": "COPEC",
+  "usuarios_1doc": 4,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-COPEC",
+  "sigla": "COPEC-AEFC",
+  "nome": "ANÁLISE ECONÔMICO FINANCEIRA E CONTÁBIL",
+  "pai": "COPEC",
+  "usuarios_1doc": 3,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-COPEC",
+  "sigla": "COPEC-AJC",
+  "nome": "APOIO JURÍDICO CONSULTIVO",
+  "pai": "COPEC",
+  "usuarios_1doc": 2,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-COPEC",
+  "sigla": "COPEC-GC",
+  "nome": "GESTÃO DE CREDENCIADOS",
+  "pai": "COPEC",
+  "usuarios_1doc": 2,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-DIROUVSUS",
+  "sigla": "DIROUVSUS",
+  "nome": "DIRETORIA DE OUVIDORIA DO SUS",
+  "pai": "EXEC",
+  "usuarios_1doc": 1,
+  "nivel": 3
+ },
+ {
+  "sigla_1doc": "SEMUS-ATOUVSUS",
+  "sigla": "ATOUVSUS",
+  "nome": "ÁREA TÉCNICA OUVIDORIA DO SUS",
+  "pai": "DIROUVSUS",
+  "usuarios_1doc": 3,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-ESPA",
+  "sigla": "ESPA",
+  "nome": "SUPERINTENDÊNCIA ESCOLA DE SAÚDE PÚBLICA",
+  "pai": "EXEC",
+  "usuarios_1doc": 1,
+  "nivel": 3
+ },
+ {
+  "sigla_1doc": "ESPA-ASTEC",
+  "sigla": "ESPA-ASTEC",
+  "nome": "ASSESSORIA TÉCNICA",
+  "pai": "ESPA",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-ESPA-ASADM",
+  "sigla": "ESPA-ASADM",
+  "nome": "ASSESSORIA ADMINISTRATIVA",
+  "pai": "ESPA",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-ESPA-ASCOM",
+  "sigla": "ESPA-ASCOM",
+  "nome": "ASSESSORIA DE COMUNICAÇÃO",
+  "pai": "ESPA",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-ESPA-ASOPE",
+  "sigla": "ESPA-ASOPE",
+  "nome": "ASSESSORIA OPERACIONAL",
+  "pai": "ESPA",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-NAP",
+  "sigla": "NAP",
+  "nome": "NÚCLEO DE APOIO PSICOLÓGICO",
+  "pai": "ESPA",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-NEP",
+  "sigla": "NEP",
+  "nome": "NÚCLEO DE EDUCAÇÃO PERMANENTE",
+  "pai": "ESPA",
+  "usuarios_1doc": 3,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-NAT",
+  "sigla": "NAT",
+  "nome": "NÚCLEO DE APOIO TÉCNICO",
+  "pai": "EXEC",
+  "usuarios_1doc": 3,
+  "nivel": 3
+ },
+ {
+  "sigla_1doc": "SEMUS-SAAC",
+  "sigla": "SAAC",
+  "nome": "SUPERINTENDÊNCIA AUDITORIA, AVALIAÇÃO E CONTROLE",
+  "pai": "EXEC",
+  "usuarios_1doc": 1,
+  "nivel": 3
+ },
+ {
+  "sigla_1doc": "SEMUS-DAAC",
+  "sigla": "DAAC",
+  "nome": "DIRETORIA DE AUDITORIA, AVALIAÇÃO E CONTROLE",
+  "pai": "SAAC",
+  "usuarios_1doc": 2,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-SUPADM",
+  "sigla": "SUPADM",
+  "nome": "SUPERINTENDÊNCIA ADMINISTRATIVA E FINANCEIRA",
+  "pai": "EXEC",
+  "usuarios_1doc": 1,
+  "nivel": 3
+ },
+ {
+  "sigla_1doc": "SEMUS-DADM",
+  "sigla": "DADM",
+  "nome": "DIRETORIA ADMINISTRATIVA",
+  "pai": "SUPADM",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-ATADM",
+  "sigla": "ATADM",
+  "nome": "ÁREA TÉCNICA ADMINISTRATIVA",
+  "pai": "DADM",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-CDSI",
+  "sigla": "CDSI",
+  "nome": "COORDENAÇÃO DSI",
+  "pai": "DADM",
+  "usuarios_1doc": 4,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-LSUPDAM",
+  "sigla": "LSUPDAM",
+  "nome": "LOGÍSTICA SUPADM",
+  "pai": "DADM",
+  "usuarios_1doc": 2,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-PROTG",
+  "sigla": "PROTG",
+  "nome": "PROTOCOLO GERAL DA SMS",
+  "pai": "DADM",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DCOMP",
+  "sigla": "DCOMP",
+  "nome": "DIRETORIA DE COMPRAS",
+  "pai": "SUPADM",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-ATDCOMP",
+  "sigla": "ATDCOMP",
+  "nome": "ÁREA TÉCNICA DA DIRETORIA DE COMPRAS",
+  "pai": "DCOMP",
+  "usuarios_1doc": 2,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-GEXEC",
+  "sigla": "GEXEC",
+  "nome": "GERÊNCIA DE EXECUÇÃO",
+  "pai": "DCOMP",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-ATGEXEC",
+  "sigla": "ATGEXEC",
+  "nome": "ÁREA TÉCNICA DA GERÊNCIA DE EXECUÇÃO",
+  "pai": "GEXEC",
+  "usuarios_1doc": 14,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-GLICIT",
+  "sigla": "GLICIT",
+  "nome": "GERÊNCIA DE LICITAÇÃO",
+  "pai": "DCOMP",
+  "usuarios_1doc": 6,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-TRANSPARÊNCIA",
+  "sigla": "TRANSPARENCIA",
+  "nome": "TRANSPARÊNCIA",
+  "pai": "DCOMP",
+  "usuarios_1doc": 0,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DFIN",
+  "sigla": "DFIN",
+  "nome": "DIRETORIA FINANCEIRA",
+  "pai": "SUPADM",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-CFIN",
+  "sigla": "CFIN",
+  "nome": "COORDENAÇÃO FINANCEIRA",
+  "pai": "DFIN",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DMANUT",
+  "sigla": "DMANUT",
+  "nome": "DIRETORIA DE MANUTENÇÃO",
+  "pai": "SUPADM",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-CMANUT",
+  "sigla": "CMANUT",
+  "nome": "COORDENAÇÃO DE MANUTENÇÃO",
+  "pai": "DMANUT",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-ENCMANUT",
+  "sigla": "ENCMANUT",
+  "nome": "ENCARREGADOS DE MANUTENÇÃO",
+  "pai": "CMANUT",
+  "usuarios_1doc": 5,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-OPMANUT",
+  "sigla": "OPMANUT",
+  "nome": "OPERACIONAIS DE MANUTENÇÃO",
+  "pai": "ENCMANUT",
+  "usuarios_1doc": 8,
+  "nivel": 7
+ },
+ {
+  "sigla_1doc": "SEMUS-DOC",
+  "sigla": "DOC",
+  "nome": "DIRETORIA DE OBRAS E CONVÊNIOS",
+  "pai": "SUPADM",
+  "usuarios_1doc": 5,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-DPL",
+  "sigla": "DPL",
+  "nome": "DIRETORIA DE PATRIMÔNIO E LOGÍSTICA",
+  "pai": "SUPADM",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-CCL",
+  "sigla": "CCL",
+  "nome": "COORDENAÇÃO DO CENTRO LOGÍSTICO",
+  "pai": "DPL",
+  "usuarios_1doc": 5,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-MTO",
+  "sigla": "MTO",
+  "nome": "MANUTENÇÃO ODONTOLÓGICA",
+  "pai": "CCL",
+  "usuarios_1doc": 0,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-CPT",
+  "sigla": "CPT",
+  "nome": "COORDENAÇÃO DE PATRIMÔNIO",
+  "pai": "DPL",
+  "usuarios_1doc": 3,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DCLP",
+  "sigla": "DCLP",
+  "nome": "DIRETORIA DO CENTRO LOGÍSTICO E PATRIMÔNIO",
+  "pai": "DPL",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DPLAN",
+  "sigla": "DPLAN",
+  "nome": "DIRETORIA DE PLANEJAMENTO",
+  "pai": "SUPADM",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-CPLAN",
+  "sigla": "CPLAN",
+  "nome": "COORDENAÇÃO DE PLANEJAMENTO",
+  "pai": "DPLAN",
+  "usuarios_1doc": 2,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DRH",
+  "sigla": "DRH",
+  "nome": "DIRETORIA DE RECURSOS HUMANOS",
+  "pai": "SUPADM",
+  "usuarios_1doc": 0,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-CRH",
+  "sigla": "CRH",
+  "nome": "COORDENAÇÃO DE RECURSOS HUMANOS",
+  "pai": "DRH",
+  "usuarios_1doc": 9,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DTI",
+  "sigla": "DTI",
+  "nome": "DIRETORIA DE T.I.",
+  "pai": "SUPADM",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-ATCELK",
+  "sigla": "ATCELK",
+  "nome": "ÁREA TÉCNICA CELK",
+  "pai": "DTI",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-CTI",
+  "sigla": "CTI",
+  "nome": "COORDENAÇÃO DE T.I.",
+  "pai": "DTI",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DTRANSP",
+  "sigla": "DTRANSP",
+  "nome": "DIRETORIA DE TRANSPORTE",
+  "pai": "SUPADM",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-CTRANSP",
+  "sigla": "CTRANSP",
+  "nome": "COORDENAÇÃO DE TRANSPORTE",
+  "pai": "DTRANSP",
+  "usuarios_1doc": 5,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-MOT",
+  "sigla": "MOT",
+  "nome": "SEMUS MOTORISTAS",
+  "pai": "DTRANSP",
+  "usuarios_1doc": 25,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-SUPAE",
+  "sigla": "SUPAE",
+  "nome": "SUPERINTENDÊNCIA DE ATENÇÃO ESPECIALIZADA",
+  "pai": "EXEC",
+  "usuarios_1doc": 1,
+  "nivel": 3
+ },
+ {
+  "sigla_1doc": "SEMUS-DREAB",
+  "sigla": "DREAB",
+  "nome": "DIRETORIA DE REABILITAÇÃO",
+  "pai": "SUPAE",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-CERIV",
+  "sigla": "CERIV",
+  "nome": "CENTRO ESPECIALIZADO EM REABILITAÇÃO",
+  "pai": "DREAB",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-SUP-CERIV",
+  "sigla": "SUP-CERIV",
+  "nome": "SUPERVISÃO CERIV",
+  "pai": "CERIV",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-CEROO",
+  "sigla": "CEROO",
+  "nome": "CER / OFICINA ORTOPÉDICA",
+  "pai": "DREAB",
+  "usuarios_1doc": 0,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DCEMA",
+  "sigla": "DCEMA",
+  "nome": "DIRETOR DA CLÍNICA ESCOLA MUNDO AUTISTA",
+  "pai": "DREAB",
+  "usuarios_1doc": 2,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DCF",
+  "sigla": "DCF",
+  "nome": "DIRETORIA DO CENTRO DE FISIOTERAPIA",
+  "pai": "DREAB",
+  "usuarios_1doc": 2,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DSM",
+  "sigla": "DSM",
+  "nome": "DIRETORIA DE SAÚDE MENTAL",
+  "pai": "SUPAE",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-CAPSADIII",
+  "sigla": "CAPSADIII",
+  "nome": "COORDENAÇÃO DO CAPS AD III",
+  "pai": "DSM",
+  "usuarios_1doc": 3,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-CAPSADIII-FISCAIS",
+  "sigla": "CAPSADIII-FISCAIS",
+  "nome": "FISCAIS DE CONTRATOS",
+  "pai": "CAPSADIII",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-CAPSII",
+  "sigla": "CAPSII",
+  "nome": "COORDENAÇÃO DO CAPS II",
+  "pai": "DSM",
+  "usuarios_1doc": 2,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-CAPSII-FARM",
+  "sigla": "CAPSII-FARM",
+  "nome": "FARMÁCIA CAPS II",
+  "pai": "CAPSII",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-CAPSII-SRT",
+  "sigla": "CAPSII-SRT",
+  "nome": "SERVIÇO RESIDENCIAL TERAPÊUTICO",
+  "pai": "CAPSII",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-CAPSINFANT",
+  "sigla": "CAPSINFANT",
+  "nome": "COORDENAÇÃO DO CAPS INFANTIL",
+  "pai": "DSM",
+  "usuarios_1doc": 3,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DUAA",
+  "sigla": "DUAA",
+  "nome": "DIRETORIA DA UNIDADE DE ACOLHIMENTO ADULTO",
+  "pai": "DSM",
+  "usuarios_1doc": 2,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DTEC",
+  "sigla": "DTEC",
+  "nome": "DIRETORIA TÉCNICA",
+  "pai": "SUPAE",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-ATEC",
+  "sigla": "ATEC",
+  "nome": "ÁREA TÉCNICA",
+  "pai": "DTEC",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-CSAD",
+  "sigla": "CSAD",
+  "nome": "COORDENAÇÃO DO SERVIÇO DE ATENDIMENTO DOMICILIAR - SAD",
+  "pai": "DTEC",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DGSAMU",
+  "sigla": "DGSAMU",
+  "nome": "DIRETOR GERAL SAMU",
+  "pai": "DTEC",
+  "usuarios_1doc": 2,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-CALSAMU",
+  "sigla": "CALSAMU",
+  "nome": "COORDENAÇÃO DE ALMOXARIFADO DO SAMU",
+  "pai": "DGSAMU",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DTSAMU",
+  "sigla": "DTSAMU",
+  "nome": "DIRETOR TÉCNICO DO SAMU",
+  "pai": "DGSAMU",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-CENF",
+  "sigla": "CENF",
+  "nome": "COORDENAÇÃO DE ENFERMAGEM",
+  "pai": "DTSAMU",
+  "usuarios_1doc": 1,
+  "nivel": 7
+ },
+ {
+  "sigla_1doc": "SEMUS-CFSAMU",
+  "sigla": "CFSAMU",
+  "nome": "COORDENAÇÃO DE FROTA DO SAMU",
+  "pai": "DTSAMU",
+  "usuarios_1doc": 3,
+  "nivel": 7
+ },
+ {
+  "sigla_1doc": "SEMUS-CNEU",
+  "sigla": "CNEU",
+  "nome": "COORDENAÇÃO DO NEU",
+  "pai": "DTSAMU",
+  "usuarios_1doc": 2,
+  "nivel": 7
+ },
+ {
+  "sigla_1doc": "SEMUS-SAMU-ADMESTAT",
+  "sigla": "SAMU-ADMESTAT",
+  "nome": "ADMINISTRATIVO ESTATÍSTICA",
+  "pai": "DGSAMU",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DRM",
+  "sigla": "DRM",
+  "nome": "DIRETORIA DE REGULAÇÃO MUNICIPAL",
+  "pai": "DTEC",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-CTFD",
+  "sigla": "CTFD",
+  "nome": "COORDENAÇÃO DE TFD",
+  "pai": "DRM",
+  "usuarios_1doc": 3,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-INST-PREV",
+  "sigla": "INST-PREV",
+  "nome": "INSTITUTO DE PREVENÇÃO",
+  "pai": "DTEC",
+  "usuarios_1doc": 2,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-ISAC/HMA",
+  "sigla": "ISAC-HMA",
+  "nome": "ISAC/HMA",
+  "pai": "DTEC",
+  "usuarios_1doc": 3,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-AME",
+  "sigla": "AME",
+  "nome": "AMBULATÓRIO MUNICIPAL DE ESPECIALIDADES",
+  "pai": "ISAC-HMA",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-PAI",
+  "sigla": "PAI",
+  "nome": "PRONTO ATENDIMENTO INFANTIL",
+  "pai": "ISAC-HMA",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-UPA",
+  "sigla": "UPA",
+  "nome": "UNIDADE DE PRONTO ATENDIMENTO",
+  "pai": "ISAC-HMA",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-NAG",
+  "sigla": "NAG",
+  "nome": "NÚCLEO DE APOIO À GESTÃO",
+  "pai": "DTEC",
+  "usuarios_1doc": 3,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-OLHAR",
+  "sigla": "OLHAR",
+  "nome": "INSTITUTO OLHAR",
+  "pai": "DTEC",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-OLHAR-FATURAMENTO",
+  "sigla": "OLHAR-FATURAMENTO",
+  "nome": "INSTITUTO OLHAR FATURAMENTO",
+  "pai": "OLHAR",
+  "usuarios_1doc": 4,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-OLHAR-RH",
+  "sigla": "OLHAR-RH",
+  "nome": "INSTITUTO OLHAR RECURSOS HUMANOS",
+  "pai": "OLHAR",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-TELEMED",
+  "sigla": "TELEMED",
+  "nome": "TELEMEDICINA",
+  "pai": "DTEC",
+  "usuarios_1doc": 0,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-YANO",
+  "sigla": "YANO",
+  "nome": "YANO",
+  "pai": "DTEC",
+  "usuarios_1doc": 3,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-SAE-DADM",
+  "sigla": "SAE-DADM",
+  "nome": "DIRETORIA ADMINISTRATIVA SUPAE",
+  "pai": "SUPAE",
+  "usuarios_1doc": 0,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-SAE-CLOG",
+  "sigla": "SAE-CLOG",
+  "nome": "COORDENAÇÃO DE LOGÍSTICA",
+  "pai": "SAE-DADM",
+  "usuarios_1doc": 0,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-SUPAE-DJUD",
+  "sigla": "SUPAE-DJUD",
+  "nome": "DEMANDAS JUDICIAIS SUPAE",
+  "pai": "SAE-DADM",
+  "usuarios_1doc": 4,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-SUPAE-RH",
+  "sigla": "SUPAE-RH",
+  "nome": "RECURSOS HUMANOS SUPAE",
+  "pai": "SAE-DADM",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-SUPAE-ADM",
+  "sigla": "SUPAE-ADM",
+  "nome": "ADMINISTRATIVO OPERACIONAL",
+  "pai": "SUPAE",
+  "usuarios_1doc": 3,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-SUPAE-ASSTEC",
+  "sigla": "SUPAE-ASSTEC",
+  "nome": "ASSESSORIA TÉCNICA SUPAE",
+  "pai": "SUPAE",
+  "usuarios_1doc": 0,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-SUPAE-COORDADM",
+  "sigla": "SUPAE-COORDADM",
+  "nome": "COORDENAÇÃO ADMINISTRATIVA SUPAE",
+  "pai": "SUPAE",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-SUPAE-NAG",
+  "sigla": "SUPAE-NAG",
+  "nome": "COORDENAÇÃO NAG",
+  "pai": "SUPAE",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-SUPAP",
+  "sigla": "SUPAP",
+  "nome": "SUPERINTENDÊNCIA DE ATENÇÃO PRIMÁRIA",
+  "pai": "EXEC",
+  "usuarios_1doc": 1,
+  "nivel": 3
+ },
+ {
+  "sigla_1doc": "SEMUS-CNRUA",
+  "sigla": "CNRUA",
+  "nome": "CONSULTÓRIO NA RUA",
+  "pai": "SUPAP",
+  "usuarios_1doc": 4,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-SUPAP-ADM",
+  "sigla": "SUPAP-ADM",
+  "nome": "ADMINISTRATIVO",
+  "pai": "SUPAP",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-SUPAP-ASSTEC",
+  "sigla": "SUPAP-ASSTEC",
+  "nome": "ASSESSORIA TÉCNICA",
+  "pai": "SUPAP",
+  "usuarios_1doc": 1,
+  "nivel": 4
+ },
+ {
+  "sigla_1doc": "SEMUS-CICLOS",
+  "sigla": "CICLOS",
+  "nome": "CICLOS DE VIDA",
+  "pai": "SUPAP-ASSTEC",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-ATECICLOS",
+  "sigla": "ATECICLOS",
+  "nome": "ÁREA TÉCNICA CICLOS DE VIDA",
+  "pai": "CICLOS",
+  "usuarios_1doc": 4,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-CICLOS-SCEI",
+  "sigla": "CICLOS-SCEI",
+  "nome": "SAÚDE DA CRIANÇA NA EDUCAÇÃO INFANTIL",
+  "pai": "ATECICLOS",
+  "usuarios_1doc": 1,
+  "nivel": 7
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF",
+  "sigla": "DAF",
+  "nome": "DIRETORIA ASSISTÊNCIA FARMACÊUTICA",
+  "pai": "SUPAP-ASSTEC",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-COORD",
+  "sigla": "DAF-COORD",
+  "nome": "COORDENAÇÃO ASSISTÊNCIA FARMACÊUTICA",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-CAPSAD",
+  "nome": "FARMÁCIA CAPS AD",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-CAPSII",
+  "nome": "FARMÁCIA CAPS II",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-JOSEREZEND",
+  "nome": "FARMÁCIA JOSÉ REZENDE",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-EURICOCARNE",
+  "nome": "FARMÁCIA EURICO CARNEIRO",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-PALMEINORTE",
+  "nome": "FARMÁCIA PALMEIRAS DO NORTE",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-BAIRROFATIM",
+  "nome": "FARMÁCIA BAIRRO DE FÁTIMA",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-COUTOMAGALH",
+  "nome": "FARMÁCIA COUTO MAGALHÃES",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-DRANTOCATI",
+  "nome": "FARMÁCIA DR ANTÔNIO CATINI",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-DRCESADELG",
+  "nome": "FARMÁCIA DR CESAR DELGADO",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-ARAGUASUL",
+  "nome": "FARMÁCIA ARAGUAÍNA SUL",
+  "pai": "DAF",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-MARIAREIS",
+  "nome": "FARMÁCIA MARIA DOS REIS",
+  "pai": "DAF",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-DRAESMEMEDR",
+  "nome": "FARMÁCIA DRA ESMERALDA MEDRADO",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-LAGOAZUL",
+  "nome": "FARMÁCIA LAGO AZUL",
+  "pai": "DAF",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-MANOELALVES",
+  "nome": "FARMÁCIA MANOEL ALVES",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-JOSERONALD",
+  "nome": "FARMÁCIA JOSÉ RONALDO",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-AVANYGALDIN",
+  "nome": "FARMÁCIA AVANY GALDINO",
+  "pai": "DAF",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-ASSISTFARMA",
+  "nome": "ASSISTÊNCIA FARMACÊUTICA",
+  "pai": "DAF",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-MANOELMARIA",
+  "nome": "FARMÁCIA MANOEL MARIA",
+  "pai": "DAF",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-DRRAIMUN",
+  "nome": "FARMÁCIA DR RAIMUNDO",
+  "pai": "DAF",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-SENADOBENED",
+  "nome": "FARMÁCIA SENADOR BENEDITO",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-DRFRANCI",
+  "nome": "FARMÁCIA DR FRANCISCO",
+  "pai": "DAF",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-MANOELREIS",
+  "nome": "FARMÁCIA MANOEL DOS REIS",
+  "pai": "DAF",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-PEDROPACIFI",
+  "nome": "FARMÁCIA PEDRO PACÍFICO",
+  "pai": "DAF",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DAF-FARM",
+  "sigla": "DAF-FARM-DRDANTAS",
+  "nome": "FARMÁCIA DR DANTAS",
+  "pai": "DAF",
+  "usuarios_1doc": 4,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DIMUN",
+  "sigla": "DIMUN",
+  "nome": "DIRETORIA IMUNIZAÇÃO",
+  "pai": "SUPAP-ASSTEC",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-CIMUN",
+  "sigla": "CIMUN",
+  "nome": "COORDENAÇÃO IMUNIZAÇÃO",
+  "pai": "DIMUN",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-ATIMUN",
+  "sigla": "ATIMUN",
+  "nome": "ÁREA TÉCNICA IMUNIZAÇÃO",
+  "pai": "CIMUN",
+  "usuarios_1doc": 1,
+  "nivel": 7
+ },
+ {
+  "sigla_1doc": "SEMUS-IMUN-PEC-SIES-SIPNI",
+  "sigla": "IMUN-PEC-SIES-SIPNI",
+  "nome": "IMUNIZAÇÃO - PEC/SIES/SIPNI",
+  "pai": "ATIMUN",
+  "usuarios_1doc": 1,
+  "nivel": 8
+ },
+ {
+  "sigla_1doc": "SEMUS-RF",
+  "sigla": "RF",
+  "nome": "REDE DE FRIO",
+  "pai": "IMUN-PEC-SIES-SIPNI",
+  "usuarios_1doc": 1,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-DINF",
+  "sigla": "DINF",
+  "nome": "DIRETORIA DE INFORMAÇÃO",
+  "pai": "SUPAP-ASSTEC",
+  "usuarios_1doc": 2,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-AMS",
+  "sigla": "AMS",
+  "nome": "APLICATIVO MAIS SAÚDE",
+  "pai": "DINF",
+  "usuarios_1doc": 2,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-SS/SUPAP",
+  "sigla": "SS-SUPAP",
+  "nome": "SERVIÇO SOCIAL/SUPAP",
+  "pai": "DINF",
+  "usuarios_1doc": 3,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-DITEC",
+  "sigla": "DITEC",
+  "nome": "DIRETORIA TÉCNICA",
+  "pai": "SUPAP-ASSTEC",
+  "usuarios_1doc": 1,
+  "nivel": 5
+ },
+ {
+  "sigla_1doc": "SEMUS-CESF",
+  "sigla": "CESF",
+  "nome": "COORDENAÇÃO ESTRATÉGIA SAÚDE DA FAMÍLIA - ESF",
+  "pai": "DITEC",
+  "usuarios_1doc": 1,
+  "nivel": 6
+ },
+ {
+  "sigla_1doc": "SEMUS-ADESF",
+  "sigla": "ADESF",
+  "nome": "ADMINISTRATIVO ESF",
+  "pai": "CESF",
+  "usuarios_1doc": 1,
+  "nivel": 7
+ },
+ {
+  "sigla_1doc": "SEMUS-ATEBF",
+  "sigla": "ATEBF",
+  "nome": "ÁREA TÉCNICA BOLSA FAMÍLIA",
+  "pai": "CESF",
+  "usuarios_1doc": 1,
+  "nivel": 7
+ },
+ {
+  "sigla_1doc": "SEMUS-CRESF",
+  "sigla": "CRESF",
+  "nome": "COORDENADORA DE REGIÃO DA ESF",
+  "pai": "CESF",
+  "usuarios_1doc": 5,
+  "nivel": 7
+ },
+ {
+  "sigla_1doc": "SEMUS-CME",
+  "sigla": "CME",
+  "nome": "CENTRAL DE MATERIAIS E ESTERILIZAÇÃO",
+  "pai": "CRESF",
+  "usuarios_1doc": 3,
+  "nivel": 8
+ },
+ {
+  "sigla_1doc": "SEMUS-EAGS",
+  "sigla": "EAGS",
+  "nome": "ENCARREGADO DOS AGENTES DE SAÚDE - ACS",
+  "pai": "CRESF",
+  "usuarios_1doc": 2,
+  "nivel": 8
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS",
+  "sigla": "UBS",
+  "nome": "UNIDADES BÁSICAS DE SAÚDE",
+  "pai": "CRESF",
+  "usuarios_1doc": 0,
+  "nivel": 8
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-ALBENY",
+  "sigla": "UBS-ALBENY",
+  "nome": "UBS ALBENY SOARES DE PAULA",
+  "pai": "UBS",
+  "usuarios_1doc": 2,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-ARAGUAINASUL",
+  "sigla": "UBS-ARAGUAINASUL",
+  "nome": "UBS ARAGUAÍNA SUL",
+  "pai": "UBS",
+  "usuarios_1doc": 1,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-AVANY",
+  "sigla": "UBS-AVANY",
+  "nome": "UBS AVANY GALDINO DA SILVA",
+  "pai": "UBS",
+  "usuarios_1doc": 2,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-BARRADAGROTA",
+  "sigla": "UBS-BARRADAGROTA",
+  "nome": "UBS BARRA DA GROTA",
+  "pai": "UBS",
+  "usuarios_1doc": 1,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-BARROS",
+  "sigla": "UBS-BARROS",
+  "nome": "UBS MARIA DOS REIS",
+  "pai": "UBS",
+  "usuarios_1doc": 1,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-COUTO",
+  "sigla": "UBS-COUTO",
+  "nome": "UBS COUTO MAGALHÃES",
+  "pai": "UBS",
+  "usuarios_1doc": 1,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-DRAESMERALDA",
+  "sigla": "UBS-DRAESMERALDA",
+  "nome": "UBS DRA ESMERALDA MEDRADO",
+  "pai": "UBS",
+  "usuarios_1doc": 1,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-DRANTONIO",
+  "sigla": "UBS-DRANTONIO",
+  "nome": "UBS DR ANTONIO CATINI",
+  "pai": "UBS",
+  "usuarios_1doc": 2,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-DRCESAR",
+  "sigla": "UBS-DRCESAR",
+  "nome": "UBS DR CESAR AUGUSTO DELGADO",
+  "pai": "UBS",
+  "usuarios_1doc": 2,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-DRDANTAS",
+  "sigla": "UBS-DRDANTAS",
+  "nome": "UBS DR DANTAS",
+  "pai": "UBS",
+  "usuarios_1doc": 2,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-DRFRANCISCO",
+  "sigla": "UBS-DRFRANCISCO",
+  "nome": "UBS DR FRANCISCO BARBOSA DE BRITO",
+  "pai": "UBS",
+  "usuarios_1doc": 2,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-DRRAIMUNDO",
+  "sigla": "UBS-DRRAIMUNDO",
+  "nome": "UBS DR RAIMUNDO GOMES MARINHO",
+  "pai": "UBS",
+  "usuarios_1doc": 1,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-FATIMA",
+  "sigla": "UBS-FATIMA",
+  "nome": "UBS BAIRRO DE FÁTIMA",
+  "pai": "UBS",
+  "usuarios_1doc": 1,
+  "nivel": 9
+ },
+ {
+  "sigla_1doc": "SEMUS-UBS-JK",
+  "sigla": "UBS-JK",
+  "nome": "UBS JK ARAGUAÍNA",
+  "pai": "UBS",
+  "usuarios_1doc": 1,
+  "nivel": 9
+ }
+]
