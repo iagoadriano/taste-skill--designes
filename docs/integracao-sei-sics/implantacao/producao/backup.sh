@@ -6,7 +6,7 @@
 #   BACKUP_DIAS (padrao 30), BACKUP_REMOTO (destino do rclone, ex.: oci:sigadoc-backup)
 set -euo pipefail
 cd "$(dirname "$0")/.."
-set -a; . ./.env; set +a
+. producao/env.sh
 DIR=${BACKUP_DIR:-/var/backups/sigadoc}; DIAS=${BACKUP_DIAS:-30}
 mkdir -p "$DIR"; chmod 700 "$DIR"
 ARQ="$DIR/sigadoc-$(date +%Y%m%d-%H%M).sql.gz"

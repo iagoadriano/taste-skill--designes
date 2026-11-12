@@ -4,12 +4,15 @@
 # Uso: producao/restaurar-teste.sh [arquivo.sql.gz]   (padrao: a copia mais recente)
 set -euo pipefail
 cd "$(dirname "$0")/.."
-set -a; . ./.env; set +a
+. producao/env.sh
 ARQ=${1:-$(ls -1t "${BACKUP_DIR:-/var/backups/sigadoc}"/sigadoc-*.sql.gz | head -1)}
 NOME=sigadoc-restauro-$$; SENHA=$(openssl rand -hex 12)
 docker run -d --rm --name "$NOME" -e MYSQL_ROOT_PASSWORD="$SENHA" mysql:8.0.21 >/dev/null
 trap 'docker rm -f "$NOME" >/dev/null 2>&1' EXIT
-for _ in $(seq 1 60); do docker exec "$NOME" mysqladmin ping -uroot -p"$SENHA" --silent 2>/dev/null && break; sleep 3; done
+# O ping responde antes de a senha do root valer; so um SELECT real prova que o banco esta pronto.
+pronto=nao
+for _ in $(seq 1 60); do docker exec "$NOME" mysql -h127.0.0.1 -uroot -p"$SENHA" -e "SELECT 1" >/dev/null 2>&1 && { pronto=sim; break; }; sleep 3; done
+[ "$pronto" = sim ] || { echo "FALHA: banco temporario nao ficou pronto" >&2; exit 1; }
 echo "Restaurando $ARQ ..."
 gzip -dc "$ARQ" | docker exec -i "$NOME" mysql -uroot -p"$SENHA" --default-character-set=utf8mb4 2>/dev/null
 docker exec "$NOME" mysql -uroot -p"$SENHA" -N -e "

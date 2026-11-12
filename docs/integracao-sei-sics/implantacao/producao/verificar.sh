@@ -5,7 +5,7 @@
 # (ex.: webhook do Google Chat/Teams/Slack, ou ntfy.sh/<topico-secreto>).
 set -uo pipefail
 cd "$(dirname "$0")/.."
-set -a; . ./.env; set +a
+. producao/env.sh
 problemas=()
 URL=${SIGA_URL_PUBLICA:-http://localhost}
 codigo=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$URL/siga/public/app/login") || codigo=000
