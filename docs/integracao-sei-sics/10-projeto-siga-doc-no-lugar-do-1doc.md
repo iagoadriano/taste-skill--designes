@@ -119,3 +119,10 @@ Em 11/11/2026 foi incluída no SICS-GOV, sem publicar, uma aba "SIGA-Doc" de dem
 - Fase 0 executada em 11/11/2026; resultado no arquivo 12.
 - O usuário definiu que o ambiente de teste ficará em uma máquina virtual em nuvem. O kit de instalação está na pasta [implantacao](implantacao/README.md).
 - Falta o usuário (ou a TI) criar a máquina e executar a instalação; a sessão que preparou o kit não tem conta de nuvem nem acesso remoto por terminal.
+
+## 9. Registro: SIGA-Doc de homologação no ar
+
+- Em 12/11/2026 o kit da pasta `implantacao` foi executado pelo usuário em uma máquina virtual da Oracle Cloud, região São Paulo (Ubuntu 22.04 Minimal, forma VM.Standard3.Flex com 4 OCPUs e 64 GB).
+- Verificado de fora, pela web: a página `/siga` abre, o login da API funciona e a lista de modelos responde. Nenhum documento foi criado nesta verificação.
+- HTTPS ainda não configurado: falta um nome de domínio apontando para a máquina.
+- O endereço da máquina não é registrado aqui porque este repositório é público.
