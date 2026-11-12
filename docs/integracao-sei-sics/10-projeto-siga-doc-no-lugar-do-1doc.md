@@ -126,3 +126,24 @@ Em 11/11/2026 foi incluída no SICS-GOV, sem publicar, uma aba "SIGA-Doc" de dem
 - Verificado de fora, pela web: a página `/siga` abre, o login da API funciona e a lista de modelos responde. Nenhum documento foi criado nesta verificação.
 - HTTPS ainda não configurado: falta um nome de domínio apontando para a máquina.
 - O endereço da máquina não é registrado aqui porque este repositório é público.
+
+## 10. Registro: integração SICS-GOV ↔ SIGA-Doc, etapas D1 e D2 (leitura)
+
+Decisão do usuário (12/11/2026): processos continuam sendo abertos pela tela do SIGA-Doc; a API é usada para memorandos, ofícios e despachos com os PDFs anexados (ver arquivo 12, seção 7).
+
+Implementado no SICS-GOV, sem publicar e visível só para administradores:
+
+| Peça | Arquivo no SICS-GOV | Função |
+|---|---|---|
+| Cliente do SIGA | `base44/shared/sigaDocClient.ts` | Autentica com a conta de integração (token reaproveitado até expirar), consulta documento com histórico e dossiê, gera o PDF completo. Valida a sigla e trata "número inexistente" |
+| Função de backend | `base44/functions/sigaDoc/entry.ts` | Ações `status`, `consultar` e `pdf`. Exige usuário administrador. Nunca devolve credenciais |
+| Segredos | `SIGA_URL`, `SIGA_USUARIO`, `SIGA_SENHA` | Credenciais da conta de integração, só no backend |
+| Referência no dossiê | `references.js` e `processReferences.ts` | Novo tipo `siga` ("SIGA-Doc"); fica fora do seletor geral de referências |
+| Aba SIGA-Doc | `src/components/dossiers/SigaDocPreviewPanel.jsx` | Vincula um número do SIGA ao dossiê (confere se existe antes de gravar), mostra situação, onde está, dossiê, tramitação e PDF completo, e permite desvincular |
+| Testes | `src/lib/dossiers/sigaDocClient.test.js` | 4 testes do cliente com respostas simuladas |
+
+Verificado: cliente executado contra o SIGA da Oracle (status, consulta, tramitação, dossiê, PDF, número inexistente); 53 testes passando nos arquivos afetados; lint sem erros; compilação concluída; função publicada recusa chamada sem login. Não verificado: a aba aberta no navegador com um administrador logado.
+
+Atenção: o SIGA de teste ainda responde só por HTTP, então a senha da conta de integração trafega sem criptografia entre o Base44 e a Oracle. Antes de dados reais, é obrigatório um domínio com HTTPS.
+
+Próximas etapas: D3 (acompanhamento agendado gravando na linha do tempo do dossiê) e D4 (criar memorando/despacho, anexar PDFs gerados pelo SICS e tramitar).
