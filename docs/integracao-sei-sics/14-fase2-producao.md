@@ -98,3 +98,9 @@ O que fazer, nesta ordem:
 8. Limitar o SSH (porta 22) ao IP da TI, na lista de segurança da Oracle.
 
 Riscos aceitos: a máquina tem 4 OCPU e 64 GB, mais do que precisa (custo). Ela já teve senha de teste pública, e por isso o passo 6 é obrigatório antes do uso real.
+
+## 8. Registro: conta de integração da SEMUS (12/11/2026)
+
+- Criada a pessoa **INTEGRACAO SICS = SEMUS10011**, na DINF. O CPF é fictício (conta de sistema) e o e-mail não é entregável, de propósito.
+- O SICS passa a emitir também o token da conta de integração com `SIGA_JWT_SECRET`, então essa conta não tem senha que precise ser guardada. Basta `SIGA_USUARIO=SEMUS10011` no Base44, e o segredo `SIGA_SENHA` pode ser apagado.
+- O SICS na nuvem ainda usa ZZ99998 até alguém trocar `SIGA_USUARIO` no Base44.
