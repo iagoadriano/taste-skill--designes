@@ -223,3 +223,8 @@ Pendente: copiar o `SIGA_JWT_SECRET` da máquina da Oracle para os segredos do S
 - O mesmo fluxo foi testado antes na cópia local: o Daniel criou, assinou e tramitou um memorando da GLICIT para a DCOMP.
 
 Pendente: lista de servidores (nome, e-mail, CPF, unidade) para cadastrar as demais pessoas.
+
+## 17. Registro: destino por pessoa e início da Fase 1 (12/11/2026)
+
+- O SICS agora envia e tramita direto para uma pessoa: botão Unidade/Pessoa, busca por nome ou matrícula. O SIGA usa `pessoadestinatario` no memorando e `matricula` na tramitação. Falta reiniciar o SIGA para ele reconhecer as matrículas do órgão SEMUS, criado depois da subida.
+- Fase 0 encerrada. A Fase 1 começa, com lista de tarefas, planilha de servidores, conferência automática e minuta do ato no arquivo 13.

@@ -141,4 +141,5 @@ Perguntas equivalentes para o administrador do SEI estão no checklist do arquiv
 | [10-projeto-siga-doc-no-lugar-do-1doc.md](10-projeto-siga-doc-no-lugar-do-1doc.md) | **Projeto em vigor:** frentes de trabalho, integração com o SICS-GOV, fases, riscos e pendências |
 | [11-ilustracao-siga-doc-no-sics-gov.png](11-ilustracao-siga-doc-no-sics-gov.png) | Ilustração da aba SIGA-Doc no dossiê do SICS-GOV |
 | [12-fase0-prova-de-conceito-siga-doc.md](12-fase0-prova-de-conceito-siga-doc.md) | Resultado da Fase 0: SIGA 11.5 instalado em teste, chamadas da API verificadas, achados e pendências |
+| [13-fase1-preparacao.md](13-fase1-preparacao.md) | Fase 1: tarefas de preparação, planilha de servidores com conferência automática, minuta do ato municipal e requisitos de produção |
 | [implantacao/](implantacao/README.md) | Kit de instalação do SIGA-Doc de homologação em máquina virtual |
