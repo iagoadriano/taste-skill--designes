@@ -78,3 +78,22 @@ O caminho mais curto, `docker-compose up` dentro do `siga-docker`, faz os passos
 A Fase 0 cumpre o critério de saída no que é essencial: a versão 11.5 funciona com MySQL e a API cria, assina e tramita documentos. A recomendação é seguir para a Fase 1 (preparação), levando as três pendências da seção 4 como primeiras tarefas técnicas.
 
 Para as próximas fases é preciso um ambiente que permaneça no ar. Sem isso, cada teste recomeça do zero.
+
+## 7. Pendências retomadas no ambiente da Oracle (12/11/2026)
+
+Testes feitos com a conta de integração (`ZZ99998`, unidade LTEST2) no SIGA instalado na máquina virtual da Oracle.
+
+| Pendência | Resultado | O que resolveu |
+|---|---|---|
+| Anexar arquivo a um documento | **Resolvido.** Um PDF foi anexado a um memorando assinado e aparece no dossiê | Havia uma regra de configuração "Anexação: Não Pode" para todos. Foi criada uma regra mais específica, "Anexação: Pode" só para a unidade LTEST2, em Ferramentas > Configurações. A regra geral foi mantida |
+| PDF recusado ao anexar | **Explicado.** O SIGA valida o arquivo: um PDF montado à mão foi recusado com "Erro ao anexar documento"; um PDF real foi aceito | O SICS deve enviar PDFs bem formados (os que ele já gera servem) |
+| Mesa virtual | **Funciona.** `GET /mesa` lista os documentos sob responsabilidade do usuário, com grupo, origem e data | Antes vinha vazia porque os documentos de teste estavam com outro usuário |
+| Pesquisa | **Funciona.** `GET /documentos?ordenacao=1&qtdmax=10` lista os documentos acessíveis | A pesquisa **não filtra por texto da descrição**; filtra por marcador, pessoa, unidade e datas. Filtrar por outra unidade exige permissão |
+| Quadro de contagens | `GET /quadro` voltou vazio | Não investigado; não é necessário para a integração |
+| Criar processo ou documento externo pela API | **Defeito do SIGA 11.5.** Os modelos de processo devolvem "Erro na gravação" (falha nula em `ExProcessadorModelo.processarModelo`) | A descrição desses modelos é montada por uma página JSP, o que falha quando a chamada vem da API. Alternativa: criar o processo pela tela, ou usar memorando/ofício/despacho pela API e anexar os PDFs |
+
+Consequência para o desenho da integração (arquivo 10, Frente D):
+
+- O fluxo **criar memorando ou despacho → anexar os PDFs do SICS → assinar → tramitar** está confirmado de ponta a ponta pela API.
+- Abrir **processos** pela API não é possível nesta versão sem corrigir o SIGA. Ou a abertura fica manual, ou o defeito é corrigido no código (o repositório é aberto) e a correção é proposta ao projeto.
+- A regra de anexação precisa existir no ambiente de produção para as unidades que vão receber documentos do SICS.
