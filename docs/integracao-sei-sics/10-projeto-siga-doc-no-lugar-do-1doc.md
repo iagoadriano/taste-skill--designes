@@ -196,3 +196,19 @@ O detalhe do documento passou a ser um componente único (`SigaDocumentoDetalhe`
 Limite principal: a mesa mostrada é a da **conta de integração** (ZZ99998 / LTEST2), não a de cada pessoa. Para cada usuário do SICS ver a própria mesa, há duas opções: (1) cada pessoa informar a própria senha do SIGA, o que exige guardar senhas; (2) o SICS emitir os tokens do SIGA em nome de cada pessoa usando a chave secreta da instalação (`siga.jwt.secret`), ligando o e-mail do SICS ao cadastro da pessoa no SIGA. A opção 2 é a recomendada, mas dá ao SICS o poder de agir como qualquer usuário do SIGA e precisa de decisão formal.
 
 Verificado: mesa por usuário e por lotação, criação, assinatura, tramitação e recebimento executados contra o SIGA da Oracle; 180 testes passando nos módulos afetados; compilação concluída. Não verificado: a página aberta no navegador.
+
+## 15. Registro: cada usuário age no SIGA em seu próprio nome (caminho 2)
+
+Decisão do usuário (12/11/2026): o SICS age no SIGA-Doc em nome de cada pessoa, sem guardar senhas.
+
+Como funciona:
+
+- O SIGA aceita tokens de acesso assinados (HS256) com a chave da instalação (`siga.jwt.secret`, que no kit é o `SIGA_JWT_SECRET` do `.env`). O formato foi lido no código (`AutenticadorJwtCookie`, `SigaJwtProvider`, biblioteca `com.auth0:java-jwt` 2.3.0, que usa a chave como texto puro) e conferido decodificando um token real: `{sub, nbf, mod:null, auth:"auth", iss:"sigaidp", exp, iat}`.
+- A função `sigaDoc` gera esse token para a sigla da pessoa ligada ao usuário do SICS, válido por 10 minutos. Mesa, consultas, criação (com a pessoa como subscritora), recebimento, assinatura e tramitação passam a ser feitos em nome dela.
+- Ligação usuário ↔ pessoa: primeiro a tabela `SigaVinculoUsuario` (definida por administrador em **Contas do SIGA**, conferindo a sigla no SIGA); se não houver, a pessoa do SIGA com o mesmo e-mail (só quando há resultado único). Sem nenhum dos dois, o SICS recusa a ação e pede o vínculo.
+- Sem o segredo `SIGA_JWT_SECRET` configurado no SICS, tudo continua com a conta de integração, e a tela avisa.
+- Histórico do dossiê e log da função registram o e-mail do SICS e a sigla em nome de quem a ação foi feita.
+
+Verificado: token gerado em TypeScript aceito pela cópia local do SIGA (entrou como ZZ99994) e token com chave errada recusado ("signature verification failed"); 9 testes do cliente e 182 nos módulos afetados passando; compilação concluída. Vínculo inicial criado: `is3602530@gmail.com` → `ZZ99999`.
+
+Pendente: copiar o `SIGA_JWT_SECRET` da máquina da Oracle para os segredos do SICS. Quem tem essa chave consegue entrar no SIGA como qualquer pessoa: ela deve ficar só no `.env` da máquina e nos segredos do SICS.
