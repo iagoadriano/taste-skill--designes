@@ -171,3 +171,9 @@ Verificado: fluxo completo executado contra o SIGA da Oracle (memorando ZZ-MEM-2
 A pedido do usuário, a integração ganhou um item próprio no menu lateral (somente administradores), logo abaixo de Protocolos. A página `SigaDoc` mostra a mesa virtual da conta de integração no SIGA-Doc, agrupada como no SIGA (Alertas, Pendente de Assinatura, Caixa de Entrada...), com filtro por texto e, para cada documento, o dossiê do SICS ao qual ele está vinculado (link direto para a aba SIGA-Doc do dossiê) e o link para abri-lo no SIGA. Criar, assinar e tramitar continuam dentro do dossiê, para que todo envio parta de um processo do SICS.
 
 Observação do teste: o SIGA marca os PDFs anexados como "Anexo Pendente de Assinatura". Os anexos também precisam ser assinados (ou conferidos) para o alerta sair; isso ainda não é feito pelo SICS.
+
+## 13. Registro: funções do Base44 não alcançam endereço IP
+
+No primeiro uso pela tela, a função `sigaDoc` recebeu `HTTP 403: error code: 1003`. É a resposta do Cloudflare para "acesso direto por IP não permitido": as funções do Base44 saem para a internet passando pelo Cloudflare, que recusa chamadas a um endereço numérico. Testes feitos fora do Base44 não mostravam o problema.
+
+Correção: o segredo `SIGA_URL` passou a usar um nome em vez do IP, pelo serviço gratuito sslip.io (o nome `<ip-com-hifens>.sslip.io` resolve para o próprio IP). Isso também abre caminho para o HTTPS: o kit da pasta `implantacao` emite o certificado sozinho quando `SIGA_DOMINIO` recebe um nome. Para produção, o recomendado é um domínio próprio da prefeitura.
