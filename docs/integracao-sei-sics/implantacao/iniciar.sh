@@ -3,7 +3,11 @@
 set -eu
 CFG="${JBOSS_HOME}/standalone/configuration/standalone.xml"
 cp "${CFG}.modelo" "${CFG}"
-prop() { sed -i "s|<property name=\"$1\" value=\"[^\"]*\"/>|<property name=\"$1\" value=\"$2\"/>|" "${CFG}"; }
+# Valor escapado para XML (& < " ) e depois para o sed (& | \\), para senhas com qualquer caractere.
+prop() {
+  v=$(printf '%s' "$2" | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/"/\&quot;/g' -e 's/[&|\\]/\\&/g')
+  sed -i "s|<property name=\"$1\" value=\"[^\"]*\"/>|<property name=\"$1\" value=\"$v\"/>|" "${CFG}"
+}
 : "${SIGA_JWT_SECRET:?defina SIGA_JWT_SECRET}" "${SIGA_SINC_SENHA:?defina SIGA_SINC_SENHA}"
 : "${REDIS_SENHA:?defina REDIS_SENHA}" "${MYSQL_SENHA:?defina MYSQL_SENHA}"
 prop siga.jwt.secret "${SIGA_JWT_SECRET}"
@@ -30,7 +34,7 @@ if [ -n "${SMTP_HOST:-}" ]; then
     prop siga.smtp.auth false
   fi
   sed -i "s|<property name=\"siga.smtp.debug\"|<property name=\"siga.smtp.starttls.enable\" value=\"${SMTP_STARTTLS:-true}\"/>\n        &|" "${CFG}"
-  prop siga.smtp.usuario.remetente "${SMTP_REMETENTE:-SIGA-Doc SEMUS\&lt;${SMTP_USUARIO:-naoresponda@localhost}>}"
+  prop siga.smtp.usuario.remetente "${SMTP_REMETENTE:-SIGA-Doc SEMUS<${SMTP_USUARIO:-naoresponda@localhost}>}"
 fi
 if grep -v '<!--' "${CFG}" | grep -q 'REPLACE-WITH-RANDOM-GUID'; then echo "Ainda ha segredo padrao na configuracao" >&2; exit 1; fi
 exec "${JBOSS_HOME}/bin/standalone.sh" -b 0.0.0.0

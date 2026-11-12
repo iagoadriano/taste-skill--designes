@@ -118,3 +118,20 @@ Riscos aceitos: a máquina tem 4 OCPU e 64 GB, mais do que precisa (custo). Ela 
 - O SICS acessa o SIGA com a conta de integração SEMUS10011, sem senha.
 - As contas de teste ZZ… foram canceladas pelo `desligar-contas-teste.sh --aplicar`, e o administrador confirmou. A partir daqui, o único administrador do SIGA é SEMUS10013.
 - Ainda pendentes na Fase 2: e-mail real (SMTP); confirmação do agendamento da cópia e do monitoramento, com o alerta testado; domínio da prefeitura; SSH limitado ao IP da TI.
+
+## 11. E-mail do SIGA pelo Resend (mesmo serviço do SICS)
+
+O SICS já envia e-mail pelo Resend, com o remetente `no-reply@sics-saude.com`. O Resend também aceita SMTP, então o SIGA usa o mesmo serviço e o mesmo domínio já verificado. No `.env` da máquina:
+
+```
+SMTP_HOST="smtp.resend.com"
+SMTP_PORTA="587"
+SMTP_USUARIO="resend"
+SMTP_SENHA="<chave de API do Resend>"
+SMTP_STARTTLS="true"
+SMTP_REMETENTE="SIGA-Doc SEMUS <no-reply@sics-saude.com>"
+```
+
+- Use uma chave nova, só para o SIGA, criada no painel do Resend (API Keys > Create, permissão "Sending access"). Assim dá para revogá-la sem afetar o SICS. A chave é digitada na máquina, nunca no chat.
+- Aplicar com `sudo docker compose up -d --build`. O `iniciar.sh` foi alterado: agora escapa qualquer caractere das senhas para o XML de configuração. Antes, `&`, `<`, `"` ou `|` numa senha quebravam a configuração.
+- Teste: em Cadastros > Pessoa, use "enviar senha" para uma pessoa com e-mail real e confira a chegada e o painel de logs do Resend.
