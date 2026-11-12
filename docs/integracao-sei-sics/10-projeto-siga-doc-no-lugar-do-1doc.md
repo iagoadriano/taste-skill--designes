@@ -177,3 +177,5 @@ Observação do teste: o SIGA marca os PDFs anexados como "Anexo Pendente de Ass
 No primeiro uso pela tela, a função `sigaDoc` recebeu `HTTP 403: error code: 1003`. É a resposta do Cloudflare para "acesso direto por IP não permitido": as funções do Base44 saem para a internet passando pelo Cloudflare, que recusa chamadas a um endereço numérico. Testes feitos fora do Base44 não mostravam o problema.
 
 Correção: o segredo `SIGA_URL` passou a usar um nome em vez do IP, pelo serviço gratuito sslip.io (o nome `<ip-com-hifens>.sslip.io` resolve para o próprio IP). Isso também abre caminho para o HTTPS: o kit da pasta `implantacao` emite o certificado sozinho quando `SIGA_DOMINIO` recebe um nome. Para produção, o recomendado é um domínio próprio da prefeitura.
+
+HTTPS ativado em 12/11/2026: `SIGA_DOMINIO=147-15-111-52.sslip.io` no `.env` da máquina; o Caddy emitiu o certificado e passou a redirecionar HTTP para HTTPS. O segredo `SIGA_URL` do SICS-GOV foi trocado para `https://`. A conta de integração deixa de trafegar sem criptografia.
