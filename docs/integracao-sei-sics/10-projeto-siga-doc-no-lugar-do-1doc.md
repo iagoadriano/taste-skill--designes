@@ -212,3 +212,14 @@ Como funciona:
 Verificado: token gerado em TypeScript aceito pela cópia local do SIGA (entrou como ZZ99994) e token com chave errada recusado ("signature verification failed"); 9 testes do cliente e 182 nos módulos afetados passando; compilação concluída. Vínculo inicial criado: `is3602530@gmail.com` → `ZZ99999`.
 
 Pendente: copiar o `SIGA_JWT_SECRET` da máquina da Oracle para os segredos do SICS. Quem tem essa chave consegue entrar no SIGA como qualquer pessoa: ela deve ficar só no `.env` da máquina e nos segredos do SICS.
+
+## 16. Registro: estrutura da SEMUS cadastrada no SIGA da Oracle (12/11/2026)
+
+- Município Araguaína/TO incluído pelo usuário (`estrutura/municipio-araguaina.sql`).
+- Permissões de cadastro (órgão, unidade, cargo, pessoa) liberadas para `ZZ99999` pela tela de permissões do SIGA.
+- Carga pela pasta `implantacao/estrutura`: órgão `SEMUS`, cargo `SERVIDOR`, 165 unidades criadas sem falha, com a hierarquia do organograma (ex.: `SEMUSGLICIT` → `SEMUSDCOMP` → `SEMUSSUPADM` → `SEMUSEXEC` → `SEMUSGAB`).
+- Pessoa de teste: Daniel Marques da Silva, `SEMUS10010`, lotado em `SEMUSGLICIT`, com o e-mail dele (CPF fictício `000.000.002-72`). A busca por e-mail no SIGA o encontra, então o SICS liga a conta dele sem vínculo manual.
+- Anexação de PDFs liberada para todo o órgão SEMUS.
+- O mesmo fluxo foi testado antes na cópia local: o Daniel criou, assinou e tramitou um memorando da GLICIT para a DCOMP.
+
+Pendente: lista de servidores (nome, e-mail, CPF, unidade) para cadastrar as demais pessoas.
