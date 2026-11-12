@@ -112,3 +112,9 @@ Riscos aceitos: a máquina tem 4 OCPU e 64 GB, mais do que precisa (custo). Ela 
 - No SICS, "Contas do SIGA" agora liga o e-mail do administrador a SEMUS10013, no lugar de ZZ99999.
 - A senha inicial foi para o servidor de e-mail de teste, porque o SMTP real ainda não está configurado. Ela é lida na própria máquina e nunca passa pelo chat.
 - Achado: o SIGA nem sempre grava uma permissão na primeira vez. Várias chamadas responderam 200 sem efeito, e foi preciso repetir até a tela de permissões mostrar o serviço como liberado. Ao dar permissões a alguém, sempre confira na tela depois. Ficaram liberados para SEMUS10013 todos os serviços de Gestão de Identidade (identidades, perfis, permissões, grupos, cadastros de órgão, unidade, cargo, função e pessoa, e envio de e-mail a novos usuários), além de configurações, modelos, painel, marcadores e feriados.
+
+## 10. Registro: produção liberada (12/11/2026)
+
+- O SICS acessa o SIGA com a conta de integração SEMUS10011, sem senha.
+- As contas de teste ZZ… foram canceladas pelo `desligar-contas-teste.sh --aplicar`, e o administrador confirmou. A partir daqui, o único administrador do SIGA é SEMUS10013.
+- Ainda pendentes na Fase 2: e-mail real (SMTP); confirmação do agendamento da cópia e do monitoramento, com o alerta testado; domínio da prefeitura; SSH limitado ao IP da TI.
