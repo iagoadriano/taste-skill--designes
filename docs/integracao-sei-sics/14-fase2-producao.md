@@ -104,3 +104,10 @@ Riscos aceitos: a máquina tem 4 OCPU e 64 GB, mais do que precisa (custo). Ela 
 - Criada a pessoa **INTEGRACAO SICS = SEMUS10011**, na DINF. O CPF é fictício (conta de sistema) e o e-mail não é entregável, de propósito.
 - O SICS passa a emitir também o token da conta de integração com `SIGA_JWT_SECRET`, então essa conta não tem senha que precise ser guardada. Basta `SIGA_USUARIO=SEMUS10011` no Base44, e o segredo `SIGA_SENHA` pode ser apagado.
 - O SICS na nuvem ainda usa ZZ99998 até alguém trocar `SIGA_USUARIO` no Base44.
+
+## 9. Registro: administrador real (12/11/2026)
+
+- Criado o administrador da SEMUS, **SEMUS10013**, na DINF. Ele recebeu as permissões de gestão de identidade e permissões, de cadastro (órgão, unidade, cargo, função, pessoa, feriado, marcador), de configurações, de modelos, do painel e de administração.
+- O e-mail dele estava na conta de teste ZZ99999, porque foi usado no início da homologação. Voltou para o e-mail original da conta de teste. O SIGA não aceita o mesmo e-mail em dois CPFs.
+- No SICS, "Contas do SIGA" agora liga o e-mail do administrador a SEMUS10013, no lugar de ZZ99999.
+- A senha inicial foi para o servidor de e-mail de teste, porque o SMTP real ainda não está configurado. Ela é lida na própria máquina e nunca passa pelo chat.
