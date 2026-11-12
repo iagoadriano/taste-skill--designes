@@ -11,7 +11,7 @@ A máquina da Oracle usada até agora continua sendo a de **homologação**, ond
 | Onde roda a produção e quem responde por ela | Sem responsável, o sistema oficial fica sem dono (risco nº 1 do arquivo 10) | pendente |
 | Domínio da prefeitura, ex.: `sigadoc.araguaina.to.gov.br` | O HTTPS automático precisa do domínio apontado para a máquina | pendente |
 | Conta de e-mail que envia as senhas (SMTP) | Em teste as mensagens ficam presas; em produção têm de chegar aos servidores | pendente |
-| Planilha de servidores conferida | Carga das pessoas | pendente |
+| Planilha de servidores | Carga das pessoas | **adiada para o fim**, por decisão da SEMUS (12/11/2026); a produção sobe só com as unidades |
 
 ## 2. Máquina recomendada
 
@@ -42,7 +42,7 @@ e aplique com `sudo docker compose up -d`.
 
 Depois, na ordem:
 
-1. Cadastrar Araguaína (`estrutura/municipio-araguaina.sql`), liberar as permissões do administrador (`estrutura/perm3.js`) e carregar as 165 unidades e as pessoas (`estrutura/carregar_semus.js` com o `pessoas.json` da Fase 1).
+1. Cadastrar Araguaína (`estrutura/municipio-araguaina.sql`), liberar as permissões do administrador (`estrutura/perm3.js`) e carregar as 165 unidades (`estrutura/carregar_semus.js` sem o arquivo de pessoas). As pessoas entram no fim, com a planilha; o mesmo comando, rodado de novo com o `pessoas.json`, só acrescenta o que falta.
 2. Criar dois usuários reais: o administrador da SEMUS (uma pessoa nomeada) e a **conta de integração do SICS** (pessoa "INTEGRACAO SICS" numa unidade de TI). Dar ao administrador as permissões de cadastro.
 3. Liberar a anexação de PDFs para o órgão SEMUS (o carregador já faz isso).
 4. `producao/desligar-contas-teste.sh`, primeiro sem e depois com `--aplicar`. Confirmar que ZZ99999 / Password1 não entra mais.
@@ -57,7 +57,7 @@ Depois, na ordem:
 - [ ] E-mail de senha chega a um servidor de teste
 - [ ] Cópia diária rodando; restauração testada com números conferidos; cópia também fora da máquina
 - [ ] Alerta testado (parar o `appserver` por 10 minutos dispara o aviso)
-- [ ] 165 unidades e as pessoas da planilha carregadas
+- [ ] 165 unidades carregadas (pessoas: no fim, ver §6)
 - [ ] Teste do item 7 aprovado pelo SICS
 - [ ] Responsável e substituto nomeados
 
@@ -65,3 +65,11 @@ Depois, na ordem:
 
 - `iniciar.sh` e `docker-compose.yml` aceitam e-mail real (`SMTP_*`). Sem essas variáveis, tudo continua como em teste. Testado contra o `standalone.xml` real do SIGA.
 - Pasta `producao/` com cópia de segurança, restauração de teste, monitoramento e cancelamento das contas de teste. O endereço usado pelo monitoramento (`/siga/public/app/login`) foi conferido na homologação.
+
+## 6. Pessoas: carga no fim
+
+A SEMUS decidiu deixar a planilha de servidores para quando o resto estiver pronto. Até lá:
+
+- a produção funciona com o administrador, a conta de integração e quem for cadastrado à mão pela tela do SIGA (Cadastros > Pessoa), uma pessoa por vez;
+- o piloto (Fase 3) precisa só da equipe da Diretoria de Compras, umas poucas pessoas que dá para cadastrar assim;
+- quando a planilha chegar, roda a conferência da Fase 1 e o carregador. Quem já foi cadastrado à mão é reconhecido pelo CPF e não duplica.

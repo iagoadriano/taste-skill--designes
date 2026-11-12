@@ -10,7 +10,7 @@ Critério de saída: dados prontos para carga e ato municipal encaminhado.
 |---|---|---|---|---|
 | 1 | Reiniciar o SIGA para ele reconhecer o órgão SEMUS (destino por pessoa) | TI / você | `sudo docker compose restart appserver` na máquina | pendente |
 | 2 | Conferir o organograma: unidades que não existem mais, nomes, chefias | Gabinete + RH | Marcar na planilha `fase1/unidades-referencia.csv` | pendente |
-| 3 | Lista de servidores que vão usar o sistema | RH | Planilha no modelo `fase1/modelo-servidores.csv` | pendente |
+| 3 | Lista de servidores que vão usar o sistema | RH | Planilha no modelo `fase1/modelo-servidores.csv` | adiada para o fim (decisão de 12/11/2026) |
 | 4 | Modelos de documento usados hoje no 1Doc (memorando, ofício, despacho, circular, requerimento) | Cada superintendência | 1 exemplo real de cada, em PDF | pendente |
 | 5 | Lista do que a SEMUS usa no 1Doc (atendimento ao cidadão, assinatura Gov.br, protocolos externos) | Comissão 1Doc (CSDOC) | Lista simples | pendente |
 | 6 | Ato municipal que torna o SIGA-Doc o sistema oficial | Jurídico | Minuta da §3 | pendente |
