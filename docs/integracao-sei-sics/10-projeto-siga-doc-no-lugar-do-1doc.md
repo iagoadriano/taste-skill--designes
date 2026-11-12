@@ -179,3 +179,20 @@ No primeiro uso pela tela, a função `sigaDoc` recebeu `HTTP 403: error code: 1
 Correção: o segredo `SIGA_URL` passou a usar um nome em vez do IP, pelo serviço gratuito sslip.io (o nome `<ip-com-hifens>.sslip.io` resolve para o próprio IP). Isso também abre caminho para o HTTPS: o kit da pasta `implantacao` emite o certificado sozinho quando `SIGA_DOMINIO` recebe um nome. Para produção, o recomendado é um domínio próprio da prefeitura.
 
 HTTPS ativado em 12/11/2026: `SIGA_DOMINIO=147-15-111-52.sslip.io` no `.env` da máquina; o Caddy emitiu o certificado e passou a redirecionar HTTP para HTTPS. O segredo `SIGA_URL` do SICS-GOV foi trocado para `https://`. A conta de integração deixa de trafegar sem criptografia.
+
+## 14. Registro: Mesa Virtual do SIGA-Doc dentro do SICS
+
+A pedido do usuário ("quero poder fazer tudo dentro do SICS"), a página do menu virou a **Mesa Virtual SIGA-Doc**, no mesmo formato da mesa do SIGA:
+
+- alternância **Usuário / Lotação**, filtro por texto, atualização e horário da última consulta;
+- grupos do SIGA (Caixa de Entrada, Aguardando Andamento, Pendente de Assinatura, Alertas...), recolhíveis, com contagem;
+- por documento: tempo, número, origem, descrição, marcas, dossiê do SICS vinculado e botões **Receber** (quando está "A Receber") e **Abrir**;
+- **Abrir** mostra o documento completo (situação, documentos anexados, tramitação) com as ações Receber, Assinar (homologação), Tramitar, PDF completo e Abrir no SIGA;
+- **Criar documento**: memorando com PDFs, sem precisar de dossiê;
+- **Pesquisar**: abre um documento pelo número (a API do SIGA não pesquisa por texto da descrição).
+
+O detalhe do documento passou a ser um componente único (`SigaDocumentoDetalhe`), usado na mesa e na aba do dossiê.
+
+Limite principal: a mesa mostrada é a da **conta de integração** (ZZ99998 / LTEST2), não a de cada pessoa. Para cada usuário do SICS ver a própria mesa, há duas opções: (1) cada pessoa informar a própria senha do SIGA, o que exige guardar senhas; (2) o SICS emitir os tokens do SIGA em nome de cada pessoa usando a chave secreta da instalação (`siga.jwt.secret`), ligando o e-mail do SICS ao cadastro da pessoa no SIGA. A opção 2 é a recomendada, mas dá ao SICS o poder de agir como qualquer usuário do SIGA e precisa de decisão formal.
+
+Verificado: mesa por usuário e por lotação, criação, assinatura, tramitação e recebimento executados contra o SIGA da Oracle; 180 testes passando nos módulos afetados; compilação concluída. Não verificado: a página aberta no navegador.
