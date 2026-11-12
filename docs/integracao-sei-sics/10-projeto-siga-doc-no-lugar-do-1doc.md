@@ -165,3 +165,9 @@ Escolhas e limites:
 - A escrita exige que o usuário consiga abrir o dossiê de onde está enviando.
 
 Verificado: fluxo completo executado contra o SIGA da Oracle (memorando ZZ-MEM-2026/00005 criado com PDF, assinado, tramitado e visto na caixa de entrada da unidade de destino); 7 testes do cliente passando; lint sem erros; compilação concluída. Não verificado: a tela aberta por um administrador no navegador.
+
+## 12. Registro: item de menu "Tramitação SIGA-Doc"
+
+A pedido do usuário, a integração ganhou um item próprio no menu lateral (somente administradores), logo abaixo de Protocolos. A página `SigaDoc` mostra a mesa virtual da conta de integração no SIGA-Doc, agrupada como no SIGA (Alertas, Pendente de Assinatura, Caixa de Entrada...), com filtro por texto e, para cada documento, o dossiê do SICS ao qual ele está vinculado (link direto para a aba SIGA-Doc do dossiê) e o link para abri-lo no SIGA. Criar, assinar e tramitar continuam dentro do dossiê, para que todo envio parta de um processo do SICS.
+
+Observação do teste: o SIGA marca os PDFs anexados como "Anexo Pendente de Assinatura". Os anexos também precisam ser assinados (ou conferidos) para o alerta sair; isso ainda não é feito pelo SICS.
