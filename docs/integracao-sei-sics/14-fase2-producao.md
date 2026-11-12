@@ -117,7 +117,7 @@ Riscos aceitos: a máquina tem 4 OCPU e 64 GB, mais do que precisa (custo). Ela 
 
 - O SICS acessa o SIGA com a conta de integração SEMUS10011, sem senha.
 - As contas de teste ZZ… foram canceladas pelo `desligar-contas-teste.sh --aplicar`, e o administrador confirmou. A partir daqui, o único administrador do SIGA é SEMUS10013.
-- Ainda pendentes na Fase 2: e-mail real (SMTP); confirmação do agendamento da cópia e do monitoramento, com o alerta testado; domínio da prefeitura; SSH limitado ao IP da TI.
+- Ainda pendentes na Fase 2 (o e-mail pelo Resend foi configurado e confirmado pelo administrador em 12/11/2026): confirmação do agendamento da cópia e do monitoramento, com o alerta testado; domínio da prefeitura; SSH limitado ao IP da TI.
 
 ## 11. E-mail do SIGA pelo Resend (mesmo serviço do SICS)
 
