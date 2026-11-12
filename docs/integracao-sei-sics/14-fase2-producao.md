@@ -53,7 +53,7 @@ Depois, na ordem:
 ## 4. Lista de aceite da TI
 
 - [ ] `https://` com cadeado válido; `http://` redireciona
-- [ ] Contas ZZ… canceladas; senhas do `.env` guardadas no cofre da TI
+- [ ] Contas ZZ… canceladas (decisão §7: mesma máquina); senhas do `.env` guardadas no cofre da TI
 - [ ] E-mail de senha chega a um servidor de teste
 - [ ] Cópia diária rodando; restauração testada com números conferidos; cópia também fora da máquina
 - [ ] Alerta testado (parar o `appserver` por 10 minutos dispara o aviso)
@@ -73,3 +73,28 @@ A SEMUS decidiu deixar a planilha de servidores para quando o resto estiver pron
 - a produção funciona com o administrador, a conta de integração e quem for cadastrado à mão pela tela do SIGA (Cadastros > Pessoa), uma pessoa por vez;
 - o piloto (Fase 3) precisa só da equipe da Diretoria de Compras, umas poucas pessoas que dá para cadastrar assim;
 - quando a planilha chegar, roda a conferência da Fase 1 e o carregador. Quem já foi cadastrado à mão é reconhecido pelo CPF e não duplica.
+
+## 7. Decisão de 12/11/2026: a máquina de homologação vira a produção
+
+A SEMUS decidiu usar a máquina da Oracle já instalada como produção e apagar os testes depois. Isso funciona sem bagunçar a numeração oficial:
+
+- **Todos os documentos de teste são do órgão de teste** (siglas `ZZ-MEM-…`, `ZZ-OFI-…`, `ZZ-DES-…`), conferido na mesa da conta de integração. Os documentos reais da SEMUS saem como `SEMUS-MEM-2026/00001` em diante, numeração própria e limpa.
+- "Apagar os testes" é cancelar as contas ZZ… (`producao/desligar-contas-teste.sh`). Os documentos de teste ficam no banco, mas ninguém da SEMUS os vê. O SIGA não apaga documento numerado, e apagar direto no banco arrisca o restante.
+
+O que fazer, nesta ordem:
+
+**Agora (na máquina, pelo Cloud Shell):**
+1. `git pull` no repositório e `sudo docker compose up -d` em `implantacao/`. Isso também reinicia o SIGA, liberando o envio para pessoa.
+2. No `.env`, acrescentar `SIGA_URL_PUBLICA=` com o endereço https atual e, assim que houver, o e-mail real (`SMTP_*`).
+3. Agendar `producao/backup.sh` e `producao/verificar.sh` (ver `producao/README.md`). Rodar uma vez `backup.sh` e `restaurar-teste.sh`.
+
+**Antes do primeiro documento real:**
+4. Criar o administrador real da SEMUS e a pessoa "INTEGRACAO SICS" (cadastro à mão).
+5. No Base44, trocar `SIGA_USUARIO`/`SIGA_SENHA` para a conta de integração nova. Em "Contas do SIGA", ligar cada e-mail do SICS à matrícula SEMUS da pessoa, no lugar de ZZ99999.
+6. Rodar `producao/desligar-contas-teste.sh --aplicar`. Confirmar que ZZ99999 e ZZ99998 não entram mais. Isso também invalida as senhas de teste que passaram pelo chat.
+
+**Depois (quando der):**
+7. Trocar o endereço sslip.io por um domínio da prefeitura: `SIGA_DOMINIO` no `.env` e `SIGA_URL` no Base44.
+8. Limitar o SSH (porta 22) ao IP da TI, na lista de segurança da Oracle.
+
+Riscos aceitos: a máquina tem 4 OCPU e 64 GB, mais do que precisa (custo). Ela já teve senha de teste pública, e por isso o passo 6 é obrigatório antes do uso real.
