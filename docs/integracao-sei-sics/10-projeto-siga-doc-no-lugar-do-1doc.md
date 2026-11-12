@@ -147,3 +147,21 @@ Verificado: cliente executado contra o SIGA da Oracle (status, consulta, tramita
 Atenção: o SIGA de teste ainda responde só por HTTP, então a senha da conta de integração trafega sem criptografia entre o Base44 e a Oracle. Antes de dados reais, é obrigatório um domínio com HTTPS.
 
 Próximas etapas: D3 (acompanhamento agendado gravando na linha do tempo do dossiê) e D4 (criar memorando/despacho, anexar PDFs gerados pelo SICS e tramitar).
+
+## 11. Registro: etapa D4, envio pelo SICS (12/11/2026)
+
+Implementado no SICS-GOV, sem publicar e visível só para administradores, na mesma aba SIGA-Doc do dossiê:
+
+- **Enviar ao SIGA-Doc:** o usuário escreve assunto e texto, escolhe a unidade de destino (busca nas unidades do SIGA) e anexa até 5 PDFs de até 9 MB. Uma tela de confirmação resume o envio. O SICS cria o memorando, finaliza (recebe número oficial), anexa os PDFs e vincula o número ao dossiê.
+- **Assinar (homologação):** assina com a conta de integração, depois de confirmação explícita. Serve só para testar o fluxo; em produção cada documento precisa ser assinado pela pessoa responsável, com conta própria no SIGA.
+- **Tramitar:** escolhe a unidade de destino, com observação opcional e confirmação. O botão só fica ativo depois da assinatura, porque o SIGA não tramita documento pendente de assinatura.
+- **Histórico:** criação, assinatura e tramitação ficam registradas na linha do tempo do dossiê, com o e-mail de quem fez.
+
+Escolhas e limites:
+
+- Só **memorando** pela API. Despacho e processos dão erro de gravação na API do SIGA 11.5 (arquivo 12, seção 7); ofício depende de uma macro que não foi testada.
+- O texto digitado entra como texto simples e é convertido em parágrafos; nenhum HTML do usuário vai cru para o SIGA.
+- Todos os PDFs são validados antes de qualquer criação no SIGA, para não deixar memorando pela metade por causa de arquivo inválido. Se um anexo falhar depois, o memorando continua criado e a tela mostra qual arquivo falhou.
+- A escrita exige que o usuário consiga abrir o dossiê de onde está enviando.
+
+Verificado: fluxo completo executado contra o SIGA da Oracle (memorando ZZ-MEM-2026/00005 criado com PDF, assinado, tramitado e visto na caixa de entrada da unidade de destino); 7 testes do cliente passando; lint sem erros; compilação concluída. Não verificado: a tela aberta por um administrador no navegador.
