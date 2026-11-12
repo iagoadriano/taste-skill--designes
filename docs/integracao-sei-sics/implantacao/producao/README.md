@@ -7,7 +7,7 @@
 | `verificar.sh` | SIGA respondendo, serviços no ar, disco abaixo de 85%, cópia com menos de 30h. Avisa em `ALERTA_URL` se algo falhar | A cada 5 minutos |
 | `desligar-contas-teste.sh` | Cancela as contas ZZ… (senha pública). Sem `--aplicar` só mostra a lista, e recusa se não houver ao menos 2 contas reais | Uma vez, depois de criar o administrador real e a conta de integração |
 
-Agendamento (`sudo crontab -e`), trocando o caminho:
+Agendamento: `sudo producao/agendar.sh` (pode repetir sem duplicar). Ou à mão, com `sudo crontab -e`:
 
 ```
 0 2 * * *   /opt/sigadoc/implantacao/producao/backup.sh   >> /var/log/sigadoc-backup.log 2>&1

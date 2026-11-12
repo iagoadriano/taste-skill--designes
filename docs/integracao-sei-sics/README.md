@@ -143,4 +143,5 @@ Perguntas equivalentes para o administrador do SEI estão no checklist do arquiv
 | [12-fase0-prova-de-conceito-siga-doc.md](12-fase0-prova-de-conceito-siga-doc.md) | Resultado da Fase 0: SIGA 11.5 instalado em teste, chamadas da API verificadas, achados e pendências |
 | [13-fase1-preparacao.md](13-fase1-preparacao.md) | Fase 1: tarefas de preparação, planilha de servidores com conferência automática, minuta do ato municipal e requisitos de produção |
 | [14-fase2-producao.md](14-fase2-producao.md) | Fase 2: máquina de produção, passo a passo, cópia de segurança, monitoramento, desligamento das contas de teste e lista de aceite da TI |
+| [15-fase3-piloto.md](15-fase3-piloto.md) | Fase 3: piloto na Diretoria de Compras, módulo SIGA-Doc no SICS, roteiro e o que observar |
 | [implantacao/](implantacao/README.md) | Kit de instalação do SIGA-Doc de homologação em máquina virtual |
