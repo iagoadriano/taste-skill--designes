@@ -228,3 +228,7 @@ Pendente: lista de servidores (nome, e-mail, CPF, unidade) para cadastrar as dem
 
 - O SICS agora envia e tramita direto para uma pessoa: botão Unidade/Pessoa, busca por nome ou matrícula. O SIGA usa `pessoadestinatario` no memorando e `matricula` na tramitação. Falta reiniciar o SIGA para ele reconhecer as matrículas do órgão SEMUS, criado depois da subida.
 - Fase 0 encerrada. A Fase 1 começa, com lista de tarefas, planilha de servidores, conferência automática e minuta do ato no arquivo 13.
+
+## 18. Registro: kit de produção (Fase 2), 12/11/2026
+
+E-mail real configurável, scripts de cópia de segurança com verificação, restauração de teste, monitoramento com alerta e cancelamento das contas de teste. Roteiro e lista de aceite no arquivo 14. A produção depende de máquina, domínio, SMTP e planilha da Fase 1.

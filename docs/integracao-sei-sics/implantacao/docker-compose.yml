@@ -16,6 +16,12 @@ services:
       SIGA_TITULO: ${SIGA_TITULO:-Secretaria Municipal de Saúde}
       SIGA_MODELO_TITULO: ${SIGA_MODELO_TITULO:-PREFEITURA MUNICIPAL}
       SIGA_MODELO_SUBTITULO: ${SIGA_MODELO_SUBTITULO:-SECRETARIA MUNICIPAL DE SAÚDE}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORTA: ${SMTP_PORTA:-587}
+      SMTP_USUARIO: ${SMTP_USUARIO:-}
+      SMTP_SENHA: ${SMTP_SENHA:-}
+      SMTP_STARTTLS: ${SMTP_STARTTLS:-true}
+      SMTP_REMETENTE: ${SMTP_REMETENTE:-}
     volumes:
       - siga-log:/var/log
       - siga-tmp:/var/tmp/siga
