@@ -238,3 +238,7 @@ E-mail real configurável, scripts de cópia de segurança com verificação, re
 - D3 (acompanhamento agendado): função `sigaAcompanhar` + workflow "Acompanhamento SIGA-Doc" (4x/dia). Lê as movimentações dos documentos do SIGA vinculados aos dossiês e grava na linha do tempo. Execução de teste concluída com sucesso. Detalhes no arquivo 16.
 - D5: o tipo de referência `siga` passou a ser registrável no bloco geral de referências do dossiê, valendo como protocolo oficial onde antes se exigia o 1Doc.
 - D4 já estava pronto (§11). Com isso, a Fase 4 está implementada no SICS; falta o uso real do piloto confirmar.
+
+## 20. Registro: encerramento do 1Doc será gradual (13/11/2026)
+
+Decisão da SEMUS: não haverá desligamento de uma vez. O SIGA-Doc entra área por área (Fase 5); documento novo nasce no SIGA, o que já corre no 1Doc termina no 1Doc, e os dois convivem na transição. O contrato do 1Doc só é encerrado quando o sistema estiver esvaziado, com o acervo preservado para consulta. Detalhes no arquivo 18.

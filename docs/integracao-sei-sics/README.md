@@ -146,5 +146,6 @@ Perguntas equivalentes para o administrador do SEI estão no checklist do arquiv
 | [15-fase3-piloto.md](15-fase3-piloto.md) | Fase 3: piloto na Diretoria de Compras, módulo SIGA-Doc no SICS, roteiro e o que observar |
 | [16-fase4-integracao-completa.md](16-fase4-integracao-completa.md) | Fase 4: acompanhamento agendado (D3), SIGA como protocolo oficial (D5) e situação de D4 |
 | [17-fase5-expansao.md](17-fase5-expansao.md) | Fase 5: expansão por superintendência, lista de verificação e roteiro de treinamento |
+| [18-fase6-encerramento-1doc.md](18-fase6-encerramento-1doc.md) | Fase 6: encerramento do 1Doc por migração gradual, sem corte seco, com acervo preservado |
 | [manuais/](manuais/) | Manuais do servidor e do administrador para o uso do SIGA-Doc no SICS |
 | [implantacao/](implantacao/README.md) | Kit de instalação do SIGA-Doc de homologação em máquina virtual |
