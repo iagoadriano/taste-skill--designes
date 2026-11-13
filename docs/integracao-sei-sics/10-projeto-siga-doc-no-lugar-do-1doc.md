@@ -232,3 +232,9 @@ Pendente: lista de servidores (nome, e-mail, CPF, unidade) para cadastrar as dem
 ## 18. Registro: kit de produção (Fase 2), 12/11/2026
 
 E-mail real configurável, scripts de cópia de segurança com verificação, restauração de teste, monitoramento com alerta e cancelamento das contas de teste. Roteiro e lista de aceite no arquivo 14. A produção depende de máquina, domínio, SMTP e planilha da Fase 1.
+
+## 19. Registro: Fase 4 (D3 e D5), 13/11/2026
+
+- D3 (acompanhamento agendado): função `sigaAcompanhar` + workflow "Acompanhamento SIGA-Doc" (4x/dia). Lê as movimentações dos documentos do SIGA vinculados aos dossiês e grava na linha do tempo. Execução de teste concluída com sucesso. Detalhes no arquivo 16.
+- D5: o tipo de referência `siga` passou a ser registrável no bloco geral de referências do dossiê, valendo como protocolo oficial onde antes se exigia o 1Doc.
+- D4 já estava pronto (§11). Com isso, a Fase 4 está implementada no SICS; falta o uso real do piloto confirmar.
