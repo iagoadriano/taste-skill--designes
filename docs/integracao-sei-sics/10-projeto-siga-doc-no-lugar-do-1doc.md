@@ -242,3 +242,15 @@ E-mail real configurável, scripts de cópia de segurança com verificação, re
 ## 20. Registro: encerramento do 1Doc será gradual (13/11/2026)
 
 Decisão da SEMUS: não haverá desligamento de uma vez. O SIGA-Doc entra área por área (Fase 5); documento novo nasce no SIGA, o que já corre no 1Doc termina no 1Doc, e os dois convivem na transição. O contrato do 1Doc só é encerrado quando o sistema estiver esvaziado, com o acervo preservado para consulta. Detalhes no arquivo 18.
+
+## 21. Registro: ações do documento no SICS e timbre do SICS no SIGA (16/11/2026)
+
+**Ações do documento.** Ao abrir um documento na Mesa Virtual ou na aba SIGA-Doc do dossiê, o SICS mostra os mesmos botões da tela do SIGA. A lista vem do próprio SIGA (campo `acoes` da consulta), então só aparece o que aquela pessoa pode fazer naquele documento.
+
+- Feitas pelo SICS, pela API: Anotar, Anexar (PDF), Assinar Anexos da Via, Definir Marcador, Definir Perfil, Incluir Cossignatário, Redefinir Acesso, Vincular, Incluir Cópia, Juntar, Sobrestar/Dessobrestar, Arquivar/Desarquivar corrente, Concluir, Notificar, Duplicar, Refazer, Gerar Protocolo, Autenticar e Tornar sem efeito (o "Cancelar" de documento assinado), além de Assinar, Tramitar, Receber e PDF, que já existiam.
+- Sem API no SIGA 11.5, abrem a tela do SIGA em outra aba: Editar, Atribuir Prazo de Assinatura, Solicitar Assinatura, Incluir Documento, Cancelar (documento ainda não assinado), Ver Mais e as demais.
+- Cada ação é feita em nome da pessoa, pede confirmação e, quando parte de um dossiê, fica na linha do tempo dele.
+- Correção: o SICS marcava como "assinado" o documento que só tinha o **anexo** assinado, e por isso escondia o botão Assinar. Agora só a assinatura do documento conta.
+- Verificado: cada chamada executada contra um SIGA 11.5 local; 15 testes do cliente; lint e compilação. "Refazer" devolveu erro do próprio SIGA no teste local (documento que já era cópia em outro); o erro aparece na tela. Não verificado: os botões clicados no navegador.
+
+**Timbre.** Os modelos de cabeçalho centralizado do SIGA passam a usar o timbre retrato do SICS (faixa superior e inferior), aplicado na compilação (`implantacao/timbre/`). Verificado gerando o PDF de um memorando num SIGA local. Falta recompilar na máquina de produção. A marca-d'água não é aplicada.

@@ -9,6 +9,10 @@ ARG DOCKER_COMMIT=e301c4c142818ba57dfb691f1275ff1f22319d06
 WORKDIR /src
 RUN git init -q . && git remote add origin ${SIGA_REPO} \
  && git fetch -q --depth 1 origin ${SIGA_COMMIT} && git checkout -q FETCH_HEAD
+# Timbre do SICS (Documentos e Identidade Visual) nos modelos de documento. TIMBRE=nao mantem o padrao do SIGA.
+ARG TIMBRE=sim
+COPY timbre /timbre
+RUN if [ "$TIMBRE" = sim ]; then python3 /timbre/aplicar_timbre.py /src /timbre; fi
 RUN mvn -B -q clean package -T 1C -DskipTests=true
 WORKDIR /extras
 RUN curl -fsSL -o modules.tar.gz https://raw.githubusercontent.com/projeto-siga/siga-docker/${DOCKER_COMMIT}/modules.tar.gz \
