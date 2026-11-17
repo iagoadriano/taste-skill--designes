@@ -264,3 +264,20 @@ A pedido do usuário, a integração não oferece mais nenhum botão ou link que
 - o endereço do SIGA guardado na referência do dossiê (o documento continua acessível pela aba SIGA-Doc e pela Mesa Virtual, dentro do SICS) e o link do protocolo no aviso de sucesso.
 
 Quando uma ação só existir na tela do SIGA, o caminho passa a ser implementá-la por dentro do SICS, não enviar o usuário para fora.
+
+## 23. Registro: criação estilo 1Doc, Editar e Solicitar Assinatura (17/11/2026)
+
+A tela de criação e as ações ficaram parecidas com o 1Doc, tudo por dentro do SICS.
+
+**Criar documento (parecido com "Novo Ofício/Memorando" do 1Doc):**
+- Escolha do **tipo**: Memorando ou Ofício (os que a API do SIGA 11.5 aceita; Despacho, Boletim e Documento Externo não entram, pois dão erro de gravação ou não têm corpo livre).
+- **Urgente** (marcador Urgente do SIGA), assunto, destino (unidade ou pessoa), texto e PDFs.
+- **Minha assinatura**, como no 1Doc: não assinar agora / assinar o documento / documento + anexos PDF / só anexos PDF.
+- **Solicitar assinatura** de outras pessoas: cada uma entra como cossignatária e o documento fica pendente de assinatura na mesa dela (o SIGA não tem endpoint próprio de "solicitar assinatura"; cossignatário é o equivalente com API).
+- Tudo numa só confirmação: cria, anexa, marca urgente, solicita e assina conforme as opções.
+
+**Editar:** reabre o texto do documento (assunto e corpo) e regrava com a mesma numeração (`POST /documentos` com a sigla). Só aparece enquanto o SIGA permite, ou seja, antes de assinado.
+
+**Solicitar Assinatura** também existe como botão de ação no documento já criado (inclui cossignatário(s)).
+
+Verificado: Memorando e Ofício criam e editam pela API; a sequência criar → anexar → urgente → cossignatário → assinar roda em ordem no SIGA 11.5 local; 38 testes passando, lint e build. Não verificado: as telas clicadas no navegador. Tudo são mudanças do app no Base44 (não precisa recompilar a máquina).
