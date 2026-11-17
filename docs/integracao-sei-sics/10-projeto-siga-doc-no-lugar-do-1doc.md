@@ -254,3 +254,13 @@ Decisão da SEMUS: não haverá desligamento de uma vez. O SIGA-Doc entra área 
 - Verificado: cada chamada executada contra um SIGA 11.5 local; 15 testes do cliente; lint e compilação. "Refazer" devolveu erro do próprio SIGA no teste local (documento que já era cópia em outro); o erro aparece na tela. Não verificado: os botões clicados no navegador.
 
 **Timbre.** Os modelos de cabeçalho centralizado do SIGA passam a usar o timbre retrato do SICS (faixa superior e inferior), aplicado na compilação (`implantacao/timbre/`). Verificado gerando o PDF de um memorando num SIGA local. Falta recompilar na máquina de produção. A marca-d'água não é aplicada.
+
+## 22. Registro: tudo dentro do SICS, sem saída para a tela do SIGA (17/11/2026)
+
+A pedido do usuário, a integração não oferece mais nenhum botão ou link que leve para a tela do SIGA. Removidos:
+
+- os botões de ação que abriam a tela do SIGA (as ações sem API no SIGA 11.5 simplesmente não aparecem; só ficam as feitas por dentro do SICS);
+- o botão "Abrir no SIGA-Doc" no detalhe do documento;
+- o endereço do SIGA guardado na referência do dossiê (o documento continua acessível pela aba SIGA-Doc e pela Mesa Virtual, dentro do SICS) e o link do protocolo no aviso de sucesso.
+
+Quando uma ação só existir na tela do SIGA, o caminho passa a ser implementá-la por dentro do SICS, não enviar o usuário para fora.
