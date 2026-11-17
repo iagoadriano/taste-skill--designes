@@ -297,3 +297,16 @@ Como funciona por baixo:
 **Pendência para ligar na produção:** a conta de provisionamento precisa da permissão **CAD_PESSOA** no SIGA. Por padrão é a conta de integração (SEMUS10011); o administrador concede essa permissão a ela (Gestão de Identidade > Permissões), ou define o segredo `SIGA_PROVISIONA` com a matrícula de uma conta que já tenha CAD_PESSOA (ex.: a do administrador). Sem isso, o auto-cadastro recusa e a tela mostra o motivo.
 
 Verificado: fluxo completo (CPF inexistente → cria pela tela com Bearer → acha a pessoa → ela age na própria mesa) num SIGA 11.5 local; 105 testes, lint e build. Não verificado: a tela clicada no navegador. Tudo são mudanças do app no Base44.
+
+## 25. Registro: melhorias inspiradas no 1Doc (17/11/2026)
+
+A partir de um ofício assinado no 1Doc, quatro melhorias no SIGA-Doc:
+
+1. **Enviar para vários setores (lista de envio) + pessoas** — na tramitação dá para escolher vários setores e pessoas de uma vez; o SICS envia a todos em paralelo (o SIGA não aceita vários num POST só, então é uma chamada "tramitar-em-paralelo" por destino). Com um só, continua a tramitação normal.
+2. **Anexos listados no documento** — os PDFs anexados aparecem como "Anexos: arquivo.pdf" no fim do corpo, como no 1Doc.
+3. **Urgente visível no corpo** — ao marcar urgente, entra "URGENTE" em destaque no topo do texto (além do marcador do SIGA).
+4. **Unidade na assinatura** — o bloco de assinatura do memorando passa a mostrar nome, função e **unidade** (o ofício já mostrava). É uma mudança no modelo (`aplicar_timbre.py`), então vale após recompilar a máquina. Corrigido também o "Atenciosamente,," (vírgula dupla).
+
+Verificado num SIGA 11.5 local: envio em paralelo para dois setores; PDF do memorando mostrando a unidade na assinatura; 108 testes, lint e build. Itens 1 a 3 são do app no Base44 (valem já); o item 4 depende de recompilar o SIGA.
+
+Pendente de análise: um segundo PDF enviado pelo usuário (thread completa do 1Doc, com as respostas acumuladas) — a analisar para ver o que mais aproximar.

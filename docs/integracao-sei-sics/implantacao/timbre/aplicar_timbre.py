@@ -71,6 +71,12 @@ def rodape(c):
     return c[:i] + linha + c[i:]
 
 
+def assinatura_memorando(c):
+    # Mostra a unidade (lota\u00e7\u00e3o) no bloco de assinatura do memorando, como no 1Doc (o of\u00edcio j\u00e1 mostra).
+    return sub1(r'formatarOrgao=false', 'formatarOrgao=true', c)
+
+
+trocar('memorando', assinatura_memorando)
 trocar('cabecalhoCentralizadoPrimeiraPagina', primeira)
 trocar('cabecalhoCentralizado', demais)
 trocar('rodapeClassificacaoDocumental', rodape)
