@@ -330,3 +330,11 @@ A Mesa Virtual ganhou cores vivas e destaque de urgência:
 - **Acento colorido por grupo** (Alertas em vermelho, Pendente de Assinatura em âmbar, Caixa de Entrada em azul, Acompanhando em verde) com o contador em cor.
 
 Publicado para os usuários. Lint e build OK.
+
+## 28. Registro: ofício fora por ora (bug de renderização do SIGA), 17/11/2026
+
+Ao gerar um ofício assinado apareceu um bloco de CSS como texto no PDF (`@page {...} .footnotes {...} a.doc-sign {...}`). Investigado no SIGA local: o problema está no **modelo de ofício do próprio SIGA** (o `<style>` do documento vaza para o corpo), e acontece também no SIGA original, sem as nossas mudanças, só no ofício — o memorando sai limpo.
+
+Decisão: a criação pelo SICS fica **só com Memorando** por enquanto (sai perfeito: timbre, urgente em destaque, anexos listados, assinatura com nome/função/unidade, "Atenciosamente" correto). O ofício será tratado à parte, como correção no template do SIGA. Documentos de ofício já existentes continuam consultáveis e editáveis.
+
+Confirmado no PDF de produção: o memorando/ofício mostram URGENTE, Anexos e a unidade na assinatura corretamente; o defeito é só o CSS vazado, próprio do ofício.
