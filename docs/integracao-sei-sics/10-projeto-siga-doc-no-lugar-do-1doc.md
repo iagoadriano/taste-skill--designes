@@ -281,3 +281,19 @@ A tela de criação e as ações ficaram parecidas com o 1Doc, tudo por dentro d
 **Solicitar Assinatura** também existe como botão de ação no documento já criado (inclui cossignatário(s)).
 
 Verificado: Memorando e Ofício criam e editam pela API; a sequência criar → anexar → urgente → cossignatário → assinar roda em ordem no SIGA 11.5 local; 38 testes passando, lint e build. Não verificado: as telas clicadas no navegador. Tudo são mudanças do app no Base44 (não precisa recompilar a máquina).
+
+## 24. Registro: auto-cadastro no primeiro acesso (17/11/2026)
+
+O servidor não precisa mais ser cadastrado à mão no SIGA. No primeiro acesso à Mesa Virtual:
+
+- Se o e-mail do SICS já existir no SIGA, o vínculo é automático (como antes).
+- Se não existir, aparece a tela **"Primeiro acesso ao SIGA-Doc"**: a pessoa informa o CPF e escolhe a sua unidade (lotação). O SICS então **cria ou localiza** a pessoa no SIGA e liga ao usuário do SICS, e a Mesa abre no nome dela.
+
+Como funciona por baixo:
+- Achado técnico: os endpoints de tela do SIGA (`/siga/app/...`) aceitam o mesmo token JWT no cabeçalho `Authorization: Bearer`. Assim o SICS cria a pessoa pela tela de cadastro (`/siga/app/pessoa/gravar`) sem precisar de senha, usando uma conta de provisionamento.
+- A pessoa é criada no órgão SEMUS, no cargo SERVIDOR, na unidade escolhida, com o CPF e o e-mail do SICS. Não precisa de login/senha no SIGA: ela age pelo token do SICS, em seu nome.
+- Busca por CPF: o SIGA dá erro quando o CPF ainda não existe; isso é tratado como "ainda não cadastrado".
+
+**Pendência para ligar na produção:** a conta de provisionamento precisa da permissão **CAD_PESSOA** no SIGA. Por padrão é a conta de integração (SEMUS10011); o administrador concede essa permissão a ela (Gestão de Identidade > Permissões), ou define o segredo `SIGA_PROVISIONA` com a matrícula de uma conta que já tenha CAD_PESSOA (ex.: a do administrador). Sem isso, o auto-cadastro recusa e a tela mostra o motivo.
+
+Verificado: fluxo completo (CPF inexistente → cria pela tela com Bearer → acha a pessoa → ela age na própria mesa) num SIGA 11.5 local; 105 testes, lint e build. Não verificado: a tela clicada no navegador. Tudo são mudanças do app no Base44.
