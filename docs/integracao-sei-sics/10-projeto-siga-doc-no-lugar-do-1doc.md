@@ -321,3 +321,12 @@ Inspirado na thread completa do 1Doc (processo com despachos acumulados):
 Observação: o PDF "completo" do SIGA para um expediente não funde o texto da resposta juntada (isso é próprio de processo, não de expediente); a resposta fica como documento real no processo e aparece na linha do tempo e no dossiê do SICS.
 
 Verificado: 110 testes, lint e build. Tudo são mudanças do app no Base44 (valem já); só a unidade na assinatura do memorando (registro 25) depende de recompilar o SIGA.
+
+## 27. Registro: visual da Mesa Virtual (17/11/2026)
+
+A Mesa Virtual ganhou cores vivas e destaque de urgência:
+- **Selos de situação coloridos por tipo**: Urgente (vermelho), Anexo pendente (laranja), Pendente de assinatura (âmbar), cossignatário/subscritor (violeta), a receber (azul), assinado/concluído (verde), arquivado/sobrestado/sem efeito (cinza).
+- **Documentos urgentes em destaque**: linha com fundo vermelho claro, barra vermelha à esquerda e ícone de alerta; o grupo mostra um contador "N urgentes".
+- **Acento colorido por grupo** (Alertas em vermelho, Pendente de Assinatura em âmbar, Caixa de Entrada em azul, Acompanhando em verde) com o contador em cor.
+
+Publicado para os usuários. Lint e build OK.
