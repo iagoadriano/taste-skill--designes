@@ -309,4 +309,15 @@ A partir de um ofício assinado no 1Doc, quatro melhorias no SIGA-Doc:
 
 Verificado num SIGA 11.5 local: envio em paralelo para dois setores; PDF do memorando mostrando a unidade na assinatura; 108 testes, lint e build. Itens 1 a 3 são do app no Base44 (valem já); o item 4 depende de recompilar o SIGA.
 
-Pendente de análise: um segundo PDF enviado pelo usuário (thread completa do 1Doc, com as respostas acumuladas) — a analisar para ver o que mais aproximar.
+Analisado o segundo PDF (thread completa do 1Doc): é o processo inteiro num PDF, com cada despacho/resposta em sequência e o histórico de eventos. O equivalente no SIGA é o dossiê do processo; o que faltava era responder dentro do processo e a linha do tempo rica — feitos no registro 26.
+
+## 26. Registro: Responder/Despachar e linha do tempo rica (17/11/2026)
+
+Inspirado na thread completa do 1Doc (processo com despachos acumulados):
+
+- **Responder/Despachar**: no documento, o botão **Responder** cria uma resposta (memorando ou ofício, com PDFs se quiser), **assina no nome da pessoa**, **junta ao processo** original e, se forem escolhidos destinos, **encaminha o processo** (um ou vários setores/pessoas). O SIGA 11.5 não cria "despacho" pela API (erro de gravação); a forma equivalente que funciona é um expediente juntado ao processo. Verificado no SIGA local: criar a resposta endereçada à própria pessoa → assinar → juntar → tramitar em paralelo, tudo aceito.
+- **Linha do tempo rica**: a tramitação do documento mostra rótulos claros por tipo de evento (Criação, Assinatura, Anexação, Juntada ao processo, Tramitação, Recebimento, Arquivamento, Solicitação de assinatura, Anotação, etc.), com a rota (origem → destino) e o responsável, como no 1Doc.
+
+Observação: o PDF "completo" do SIGA para um expediente não funde o texto da resposta juntada (isso é próprio de processo, não de expediente); a resposta fica como documento real no processo e aparece na linha do tempo e no dossiê do SICS.
+
+Verificado: 110 testes, lint e build. Tudo são mudanças do app no Base44 (valem já); só a unidade na assinatura do memorando (registro 25) depende de recompilar o SIGA.
